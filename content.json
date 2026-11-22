@@ -1,0 +1,22 @@
+{
+  "events": [
+    { "date": "2026-12-05", "time": "10:00 am", "title": "Hello, Winter! Weather Preparedness Fair", "place": "Strawberry Creek Park, 1260 Allston Way", "link": "https://berkeleyca.gov/community-recreation/events/hello-winter-weather-preparedness-fair" },
+    { "date": "2026-12-05", "time": "10:00 am", "title": "Tots Winter Carnival", "place": "1301 Shattuck Ave.", "link": "https://berkeleyca.gov/community-recreation/events/tots-winter-carnival-2" },
+    { "date": "2026-12-05", "time": "10:00 am", "title": "1st Saturday Nature Center Open House", "place": "Shorebird Nature Center, 160 University Ave.", "link": "https://berkeleyca.gov/community-recreation/events/1st-saturday-nature-center-open-house-december" },
+    { "date": "2026-12-12", "time": "10:30 am", "title": "Parent Café: Understanding How Your Baby Learns", "place": "West Berkeley Family Wellness Center, 1900 Sixth St.", "link": "https://berkeleyca.gov/community-recreation/events/free-parent-support-cafe-2026-12-12" },
+    { "date": "2026-12-12", "time": "11:30 am", "title": "Winter Youth Festival and Fun Run", "place": "80 Bolivar Dr.", "link": "https://berkeleyca.gov/community-recreation/events/winter-youth-festival-and-fun-run" }
+  ],
+  "newsletters": [
+    { "month": "2026-10", "title": "October newsletter", "topics": "Vote on November 3, Council recap, Corridors zoning, Berkeley ferry, Golden Gate Fields", "link": "https://conta.cc/4A17EhQ" },
+    { "month": "2026-09", "title": "September newsletter", "topics": "Council recap, ballot measures, fire season safety, Walnut & Cedar traffic safety", "link": "https://conta.cc/4xKWjkK" }
+  ],
+  "spotlight": {
+    "kind": "Restaurant on Solano Avenue",
+    "name": "Vanessa's Bistro",
+    "blurb": "A neighborhood bistro run by Vi Nguyen and her mother, Vanessa, where most of the people coming through the door are regulars. Stop by for Taco Tuesdays and Wine Wednesdays.",
+    "address": "1715 Solano Avenue",
+    "link": "",
+    "more": "https://conta.cc/4A17EhQ",
+    "moreText": "Read the full story in the October newsletter"
+  }
+}

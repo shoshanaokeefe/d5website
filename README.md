@@ -5,6 +5,8 @@ A one-page site that lists upcoming Berkeley City Council meetings with links to
 ## Files
 
 - `index.html`: the website. It has no build step.
+- `content.json`: events, newsletters and the business spotlight. Edit this file on GitHub to update those sections (see below).
+- `d5-logo.png`, `fountain.jpg`: the logo and the hero photo.
 - `meetings.json`: the meeting list, copied from the city's agenda page.
 - `scripts/fetch_meetings.py`: reads https://berkeleyca.gov/your-government/city-council/city-council-agendas and writes `meetings.json`. It also updates the backup copy of the list stored inside `index.html`. It uses only Python's standard library.
 - `.github/workflows/update-meetings.yml`: runs the script every 4 hours and commits any changes.
@@ -20,7 +22,12 @@ A one-page site that lists upcoming Berkeley City Council meetings with links to
 
 If the script ever can't read the city's page, it stops without changing anything. The site keeps showing the last good list, and a note appears under the list once it is more than 3 days old.
 
-## Before launch
+## Updating events, newsletters and the business spotlight
 
-- Fill in the three highlighted placeholders in the Contact section of `index.html`: office email, office phone and office hours.
-- Replace the "5" square in the header with the ginkgo logo. There is a comment in the header showing where it goes.
+Open `content.json` on GitHub, click the pencil icon, edit, and click **Commit changes**. The site updates within a minute or two.
+
+- **events**: `date` (YYYY-MM-DD), `time`, `title`, `place`, `link`. Past events drop off on their own; the first three upcoming ones show.
+- **newsletters**: `month` (YYYY-MM), `title`, `topics`, `link`. Newest first; the latest four show.
+- **spotlight**: `kind`, `name`, `blurb`, `address`, `link` (their website, optional), `more` and `moreText` (a link to the newsletter story, optional).
+
+Keep the quotes and commas exactly as they are; if the file has a typo, those sections show "nothing posted yet" until it's fixed.

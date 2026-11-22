@@ -3,156 +3,193 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Councilmember Shoshana O'Keefe, Berkeley District 5</title>
-<meta name="description" content="Berkeley City Council District 5: upcoming council meetings, agendas, and how to take part.">
+<title>Berkeley District 5 News and Information</title>
+<meta name="description" content="Berkeley District 5 news and information: events, newsletters, local businesses, and City Council meetings.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --navy: #16406E;
-    --navy-deep: #0F2E50;
-    --sky: #3FB4DC;
-    --sky-wash: #EAF6FB;
-    --ginkgo: #F5A623;
-    --ink: #1C2733;
-    --muted: #4F5D6B;
-    --rule: #D3DBE3;
-    --paper: #FFFFFF;
-    --serif: "Source Serif 4", Georgia, serif;
-    --sans: "Public Sans", system-ui, sans-serif;
-    --measure: 68ch;
-  }
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0; background: var(--paper); color: var(--ink);
-    font: 400 1.0625rem/1.6 var(--sans);
-  }
-  a { color: var(--navy); text-underline-offset: .18em; text-decoration-thickness: 1px; }
-  a:hover { text-decoration-thickness: 2px; }
-  :focus-visible { outline: 3px solid var(--ginkgo); outline-offset: 2px; }
-  .wrap { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
-  .skip { position: absolute; left: -999px; top: 0; background: var(--ginkgo); color: var(--ink); padding: .5rem 1rem; z-index: 10; }
-  .skip:focus { left: 1rem; }
+/* VOICE: a confident civic bulletin, in the manner of Boston.gov's open design system.
+   IDEA: city-hall signage: bold capitals sitting on heavy rules, serif text you can read for a while.
+   PICTURE: the neighborhood fountain under a blue wash, with the title set big across it.
+   COLOUR and TYPE: the logo's blue, ginkgo orange and white, plus black; Montserrat capitals for headings, Lora for text.
+   LAYOUT: orange menu bar, photo hero with a black base rule, next-meeting strip, ruled sections, blue how-to band, orange contact band. */
+:root {
+  color-scheme: light;
+  --blue: #0082BA;
+  --blue-text: #006A99;   /* the logo blue, deepened for text on white */
+  --orange: #ECA02E;
+  --black: #000;
+  --white: #fff;
+  --grey: rgba(0, 0, 0, .68);
+  --sans: "Montserrat", Arial, sans-serif;
+  --serif: "Lora", Georgia, serif;
+}
+* { box-sizing: border-box; min-width: 0; }
+html { scroll-padding-top: 16px; }
+body { margin: 0; background: var(--white); color: var(--black); font: 18px/1.6 var(--serif); overflow-x: clip; }
+a { color: var(--blue-text); text-underline-offset: .18em; }
+a:hover { color: var(--black); }
+:focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; }
+.inner { max-width: 1200px; margin: 0 auto; padding: 0 max(4vw, 20px); }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--black); color: #fff; padding: 10px 16px; font: 700 14px var(--sans); z-index: 9; }
+.skip:focus { left: 8px; }
 
-  /* Official strip */
-  .strip { background: var(--navy-deep); color: #DCE6F0; font-size: .875rem; }
-  .strip .wrap { padding-top: .45rem; padding-bottom: .45rem; }
-  .strip a { color: #fff; }
+/* Section header: capitals on a heavy rule */
+.sh { border-bottom: 8px solid var(--black); padding-bottom: 6px; margin: 0 0 28px; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 4px 20px; }
+.sh h2 { margin: 0; font: 700 clamp(26px, 3.2vw, 42px)/1 var(--sans); text-transform: uppercase; letter-spacing: -.5px; }
+.sh-note { font-style: italic; color: var(--grey); font-size: 16px; padding-bottom: 4px; }
+.sh-sm { border-bottom-width: 4px; }
+.sh-sm h2 { font-size: clamp(20px, 2.2vw, 26px); }
+.sh-w { border-color: var(--white); }
+.sh-w h2, .sh-w .sh-note { color: var(--white); }
 
-  /* Header */
-  header.site { border-bottom: 4px solid var(--sky); }
-  header.site .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem; padding-top: 1.25rem; padding-bottom: 1.1rem; }
-  .brand { text-decoration: none; color: var(--ink); display: flex; align-items: center; gap: .9rem; }
-  .brand-mark { width: 44px; height: 44px; flex: none; }
-  .brand-name { display: block; font: 600 1.5rem/1.15 var(--serif); color: var(--navy); }
-  .brand-role { display: block; font-size: .9375rem; color: var(--muted); }
-  nav.primary ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 1.75rem; }
-  nav.primary a { font-weight: 600; text-decoration: none; color: var(--ink); padding: .35rem 0; border-bottom: 2px solid transparent; }
-  nav.primary a:hover { border-bottom-color: var(--sky); }
+/* Buttons: square, capital letters */
+.btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; background: var(--blue-text); color: var(--white); font: 700 14px/1 var(--sans); letter-spacing: 1px; text-transform: uppercase; text-decoration: none; border: 3px solid var(--blue-text); }
+.btn:hover { background: var(--orange); border-color: var(--orange); color: var(--black); }
+.btn-o { background: var(--white); color: var(--blue-text); }
+.btns { display: flex; flex-wrap: wrap; gap: 10px; }
 
-  /* Next meeting */
-  .next { background: var(--sky-wash); border-bottom: 1px solid var(--rule); }
-  .next .wrap { display: grid; grid-template-columns: auto 1fr; gap: 2.5rem; align-items: center; padding-top: 3rem; padding-bottom: 3rem; }
-  .tile {
-    width: 11.5rem; background: var(--paper); border: 2px solid var(--navy);
-    text-align: center; box-shadow: 6px 6px 0 var(--navy);
-  }
-  .tile-month { display: block; background: var(--ginkgo); color: var(--ink); font-weight: 700; font-size: 1rem; padding: .45rem 0; border-bottom: 2px solid var(--navy); }
-  .tile-day { display: block; font: 700 5.5rem/1 var(--serif); color: var(--navy); padding: .9rem 0 .2rem; font-variant-numeric: lining-nums; }
-  .tile-weekday { display: block; font-weight: 600; color: var(--muted); padding-bottom: .9rem; }
-  .next h1 { font: 600 clamp(1.9rem, 3.4vw, 2.6rem)/1.15 var(--serif); color: var(--navy); margin: 0 0 .6rem; }
-  .next-meta { margin: 0 0 .35rem; font-size: 1.125rem; }
-  .next-where { margin: 0 0 1.5rem; color: var(--muted); max-width: var(--measure); }
-  .actions { display: flex; flex-wrap: wrap; gap: .75rem; }
-  .btn {
-    display: inline-block; font-weight: 600; text-decoration: none; padding: .7rem 1.15rem;
-    border: 2px solid var(--navy); color: var(--navy); background: var(--paper); border-radius: 3px;
-  }
-  .btn:hover { background: #F2F6FA; }
-  .btn-primary { background: var(--navy); color: #fff; }
-  .btn-primary:hover { background: var(--navy-deep); }
+/* Menu bar */
+.top { background: var(--orange); }
+.top .inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2px 24px; min-height: 56px; }
+.top-name { font: 800 15px var(--sans); letter-spacing: 1px; text-transform: uppercase; }
+.top ul { display: flex; flex-wrap: wrap; gap: 0 22px; margin: 0; padding: 0; list-style: none; }
+.top a { display: inline-block; padding: 14px 0 11px; border-bottom: 3px solid transparent; color: var(--black); font: 700 13px var(--sans); letter-spacing: 1px; text-transform: uppercase; text-decoration: none; }
+.top a:hover { border-bottom-color: var(--black); }
 
-  /* Sections */
-  main section.block { padding: 3.25rem 0; border-bottom: 1px solid var(--rule); }
-  main section.block:last-child { border-bottom: 0; }
-  h2 { font: 600 1.85rem/1.2 var(--serif); color: var(--navy); margin: 0 0 .5rem; }
-  .lede { margin: 0 0 1.75rem; color: var(--muted); max-width: var(--measure); }
+/* Hero */
+.hero { position: relative; overflow: hidden; color: var(--white); text-align: center; border-bottom: 8px solid var(--black); background: var(--blue); }
+.hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 60%; }
+.hero::before { content: ""; position: absolute; inset: 0; z-index: 1; background: rgba(0, 104, 150, .74); }
+.hero .inner { position: relative; z-index: 2; padding-top: 88px; padding-bottom: 76px; }
+.hero h1 { margin: 0 auto 18px; max-width: 15ch; font: 800 clamp(44px, 7.4vw, 96px)/.98 var(--sans); text-transform: uppercase; letter-spacing: -2px; text-wrap: balance; }
+.hero-sub { margin: 0 auto 34px; max-width: 30em; font: italic 400 clamp(19px, 2vw, 24px)/1.45 var(--serif); }
+.hero-logo { display: block; width: 156px; height: auto; margin: 0 auto; }
 
-  /* Meeting list */
-  .mtgs { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--navy); }
-  .mtg { display: grid; grid-template-columns: 11rem 1fr auto; gap: .5rem 2rem; align-items: baseline; padding: 1rem 0; border-bottom: 1px solid var(--rule); }
-  .mtg-date { font-weight: 700; }
-  .mtg-date span { display: block; font-weight: 400; color: var(--muted); }
-  .mtg-name { font-weight: 600; }
-  .mtg-note { display: block; font-weight: 400; color: var(--muted); font-size: .9375rem; }
-  .mtg-links { display: flex; flex-wrap: wrap; gap: .4rem 1.25rem; justify-content: flex-end; }
-  .mtg.is-canceled .mtg-date, .mtg.is-canceled .mtg-name { text-decoration: line-through; color: var(--muted); }
-  .tag { display: inline-block; font-size: .8125rem; font-weight: 700; padding: .05rem .45rem; border-radius: 2px; margin-left: .4rem; vertical-align: .1em; text-decoration: none; }
-  .tag-canceled { background: #FBE9E7; color: #8A2A1B; }
-  .empty { padding: 1.25rem 0; color: var(--muted); border-bottom: 1px solid var(--rule); margin: 0; }
-  .source { font-size: .9375rem; color: var(--muted); margin: 1rem 0 0; }
+/* Date flag: a bookmark-shaped tag */
+.flag { flex: none; width: 74px; padding: 12px 0 20px; background: var(--blue); color: var(--white); text-align: center; font-family: var(--sans); text-transform: uppercase; line-height: 1; clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 84%, 0 100%); }
+.flag span { display: block; font-size: 13px; font-weight: 700; letter-spacing: 1px; margin-bottom: 4px; }
+.flag b { display: block; font-size: 32px; font-weight: 800; }
+.flag-o { background: var(--orange); color: var(--black); }
+.flag-k { background: var(--black); }
 
-  /* Take part */
-  .ways { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 3rem; margin: 0; }
-  .way { padding: 1.25rem 0 1.25rem 1.1rem; border-left: 4px solid var(--sky); margin-bottom: 1.25rem; }
-  .way dt { font: 600 1.25rem/1.3 var(--serif); color: var(--navy); margin-bottom: .35rem; }
-  .way dd { margin: 0; max-width: 34rem; }
+/* Next meeting strip */
+.next { padding: 46px 0 10px; }
+.next-row { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 18px 28px; align-items: center; border: 3px solid var(--black); padding: 0 28px 0 24px; }
+.next-row .flag { align-self: start; width: 84px; }
+.next-row .flag b { font-size: 38px; }
+.next-txt { padding: 22px 0; }
+.next-k { margin: 0 0 2px; font: 700 13px var(--sans); letter-spacing: 1px; text-transform: uppercase; }
+.next-date { margin: 0; font: 700 26px/1.2 var(--sans); }
+.next-where { margin: 6px 0 0; color: var(--grey); font-size: 16px; }
 
-  /* Contact */
-  .contact { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
-  .contact h3 { font: 600 1.1rem/1.3 var(--sans); margin: 0 0 .35rem; }
-  .contact p { margin: 0; }
-  .placeholder { background: #FFF4DE; outline: 1px dashed var(--ginkgo); padding: 0 .2rem; }
+/* Sections */
+.section { padding: 56px 0; }
 
-  footer.site { background: var(--navy); color: #DCE6F0; font-size: .9375rem; }
-  footer.site .wrap { padding-top: 2rem; padding-bottom: 2.25rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem 2rem; }
-  footer.site a { color: #fff; }
-  footer.site p { margin: 0; max-width: 46rem; }
+/* Events */
+.events { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px; list-style: none; margin: 0; padding: 0; }
+.evt { position: relative; border-top: 3px solid var(--black); padding: 18px 96px 0 0; min-height: 150px; }
+.evt .flag { position: absolute; top: -3px; right: 0; }
+.evt h3 { margin: 0 0 10px; font: italic 600 24px/1.25 var(--serif); color: var(--blue-text); }
+.evt h3 a { color: inherit; }
+.evt p { margin: 0; color: var(--grey); font-size: 16px; }
+.more-link { margin: 26px 0 0; font-size: 16px; }
+.empty { color: var(--grey); font-style: italic; margin: 0; }
 
-  @media (max-width: 760px) {
-    .next .wrap { grid-template-columns: 1fr; gap: 1.75rem; padding-top: 2rem; padding-bottom: 2.25rem; }
-    .tile { width: 9.5rem; }
-    .tile-day { font-size: 4.25rem; }
-    .mtg { grid-template-columns: 1fr; gap: .25rem; }
-    .mtg-links { justify-content: flex-start; margin-top: .25rem; }
-    .ways, .contact { grid-template-columns: 1fr; }
-    nav.primary ul { gap: 1.25rem; }
-  }
-  @media print {
-    .strip, nav.primary, .actions { display: none; }
-    .tile { box-shadow: none; }
-  }
+.duo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; margin-top: 64px; }
+.dl { list-style: none; margin: 0; padding: 0; }
+.dl li { border-bottom: 1px solid rgba(0, 0, 0, .25); }
+.dl-topics { margin: -8px 0 15px; color: var(--grey); font-size: 15px; font-style: italic; }
+.dl a { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 15px 0; text-decoration: none; color: var(--black); }
+.dl a b { font: italic 600 21px/1.3 var(--serif); color: var(--blue-text); }
+.dl a:hover b { text-decoration: underline; }
+.dl a span { font: 700 12px var(--sans); letter-spacing: 1px; text-transform: uppercase; color: var(--grey); white-space: nowrap; }
+.spot { background: var(--orange); padding: 28px 30px 30px; border-left: 8px solid var(--black); }
+.spot .spot-name { margin: 0 0 4px; font: italic 600 30px/1.15 var(--serif); }
+.spot .spot-kind { margin: 0 0 14px; font: 700 13px var(--sans); letter-spacing: 1px; text-transform: uppercase; }
+.spot p { margin: 0 0 12px; font-size: 17px; }
+.spot a { color: var(--black); font-weight: 600; }
+.sample-note { margin: 34px 0 0; padding: 12px 16px; border: 3px dashed var(--orange); font-size: 15px; }
+
+/* Council meetings */
+.mtgs { list-style: none; margin: 0; padding: 0; }
+.mtg { display: grid; grid-template-columns: 74px minmax(0, 1fr) auto; gap: 8px 24px; align-items: center; padding: 0 0 18px; margin-bottom: 18px; border-bottom: 1px solid rgba(0, 0, 0, .25); }
+.mtg .flag { align-self: start; }
+.mtg-title { margin: 0; font: 700 18px/1.3 var(--sans); text-transform: uppercase; letter-spacing: .5px; }
+.mtg-sub { margin: 4px 0 0; color: var(--grey); font-size: 16px; }
+.mtg.canceled .mtg-title { text-decoration: line-through; }
+.mtg-links { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+.mtg-links a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: 2px solid var(--blue-text); color: var(--blue-text); font: 700 12px var(--sans); letter-spacing: 1px; text-transform: uppercase; text-decoration: none; white-space: nowrap; }
+.mtg-links a:hover { background: var(--blue-text); color: var(--white); }
+.mtg-links .none { font-style: italic; color: var(--grey); font-size: 16px; }
+.tag { display: inline-block; margin-left: 8px; padding: 3px 8px; font: 700 11px var(--sans); letter-spacing: 1px; vertical-align: 2px; text-decoration: none; }
+.tag-special { background: var(--orange); color: var(--black); }
+.tag-canceled { background: var(--black); color: var(--white); }
+.note { color: var(--grey); font-style: italic; margin: 0 0 18px; }
+.source { color: var(--grey); font-size: 15px; margin: 0; }
+
+/* Take part */
+.band-blue { background: var(--blue-text); color: var(--white); padding: 62px 0 66px; }
+.band-blue .lede { font-style: italic; margin: -10px 0 34px; max-width: 40em; }
+.ways { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 34px; }
+.way { border-top: 3px solid var(--white); padding-top: 18px; }
+.way svg { width: 52px; height: 52px; display: block; margin-bottom: 12px; }
+.way h3 { margin: 0 0 6px; font: 700 18px var(--sans); letter-spacing: .5px; text-transform: uppercase; }
+.way p { margin: 0; font-size: 17px; }
+.way a { color: var(--white); font-weight: 600; }
+
+/* Contact */
+.band-orange { background: var(--orange); padding: 58px 0 62px; }
+.band-orange .lede { font-style: italic; margin: -10px 0 30px; }
+.contact-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px; }
+.contact-grid h3 { margin: 0 0 4px; font: 700 15px var(--sans); letter-spacing: 1px; text-transform: uppercase; }
+.contact-grid p { margin: 0; font-size: 19px; }
+.contact-grid a { color: var(--black); font-weight: 600; }
+
+footer { background: var(--black); color: var(--white); font-size: 15px; }
+footer .inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 32px; padding-top: 30px; padding-bottom: 34px; }
+footer p { margin: 0; max-width: 46em; }
+footer a { color: var(--white); }
+
+@media (max-width: 960px) {
+  .events { grid-template-columns: 1fr; gap: 26px; }
+  .duo { grid-template-columns: 1fr; }
+  .ways { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .next-row { grid-template-columns: auto minmax(0, 1fr); }
+  .next-row .btns { grid-column: 1 / -1; padding-bottom: 24px; }
+}
+@media (max-width: 600px) {
+  body { font-size: 17px; }
+  .top .inner { padding-top: 6px; padding-bottom: 6px; }
+  .top ul { gap: 0 16px; }
+  .hero .inner { padding-top: 56px; padding-bottom: 50px; }
+  .hero h1 { letter-spacing: -1px; }
+  .hero-logo { width: 130px; }
+  .next-row { padding: 0 16px; gap: 14px 16px; }
+  .next-row .flag { width: 68px; }
+  .next-row .flag b { font-size: 30px; }
+  .next-date { font-size: 21px; }
+  .mtg { grid-template-columns: 64px minmax(0, 1fr); gap: 8px 16px; }
+  .mtg .flag { width: 64px; }
+  .mtg-links { grid-column: 1 / -1; justify-content: flex-start; }
+  .ways, .contact-grid { grid-template-columns: 1fr; }
+}
+@media print { .top ul, .btns, .mtg-links { display: none; } .hero, .band-blue { background: #fff; color: #000; } .hero::before, .hero-img { display: none; } }
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to main content</a>
 
-<div class="strip">
-  <div class="wrap">
-    Council District 5, City of Berkeley. Official meeting records are kept by the City Clerk at
-    <a href="https://berkeleyca.gov/your-government/city-council/city-council-agendas">berkeleyca.gov</a>.
-  </div>
-</div>
-
-<header class="site">
-  <div class="wrap">
-    <a class="brand" href="./">
-      <!-- Replace this mark with the ginkgo logo file (e.g. <img src="ginkgo.png" class="brand-mark" alt="">) -->
-      <svg class="brand-mark" viewBox="0 0 44 44" aria-hidden="true">
-        <rect x="1" y="1" width="42" height="42" rx="3" fill="#16406E"/>
-        <text x="22" y="30" text-anchor="middle" font-family="Source Serif 4, Georgia, serif" font-size="22" font-weight="700" fill="#F5A623">5</text>
-      </svg>
-      <span>
-        <span class="brand-name">Councilmember Shoshana O'Keefe</span>
-        <span class="brand-role">Berkeley City Council, District 5</span>
-      </span>
-    </a>
-    <nav class="primary" aria-label="Main">
+<header class="top">
+  <div class="inner">
+    <span class="top-name">Berkeley District 5</span>
+    <nav aria-label="Main">
       <ul>
-        <li><a href="#meetings">Meetings</a></li>
-        <li><a href="#take-part">Take part</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#newsletters">Newsletters</a></li>
+        <li><a href="#spotlight">Businesses</a></li>
+        <li><a href="#meetings">Council meetings</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -160,204 +197,220 @@
 </header>
 
 <main id="main">
-  <section class="next" aria-labelledby="next-heading">
-    <div class="wrap" id="next">
-      <!-- Filled in by the script below -->
-      <div class="tile" aria-hidden="true"><span class="tile-month">&nbsp;</span><span class="tile-day">&nbsp;</span><span class="tile-weekday">&nbsp;</span></div>
-      <div><h1 id="next-heading">Next City Council meeting</h1><p class="next-meta">Loading the meeting schedule…</p></div>
+  <section class="hero" aria-labelledby="page-title">
+    <img class="hero-img" src="fountain.jpg" width="764" height="428" alt="">
+    <div class="inner">
+      <h1 id="page-title">Berkeley District&nbsp;5 News and Information</h1>
+      <p class="hero-sub">Events, newsletters, local businesses and City Council meetings for District&nbsp;5 neighbors.</p>
+      <img class="hero-logo" src="d5-logo.png" width="1148" height="592" alt="Shoshana O'Keefe, Councilmember District 5">
     </div>
   </section>
 
-  <div class="wrap">
-    <section class="block" id="meetings" aria-labelledby="upcoming-heading">
-      <h2 id="upcoming-heading">Upcoming meetings</h2>
-      <p class="lede">Every scheduled City Council meeting, with its agenda once the City Clerk posts it. Closed sessions are listed too.</p>
+  <section class="next" aria-label="Next City Council meeting">
+    <div class="inner">
+      <div class="next-row" id="next"><div class="next-txt"><p class="next-where">Loading the meeting schedule…</p></div></div>
+    </div>
+  </section>
+
+  <section class="section" id="events" aria-labelledby="events-h">
+    <div class="inner">
+      <div class="sh"><h2 id="events-h">Upcoming events</h2><span class="sh-note">Coming up around Berkeley</span></div>
+      <ul class="events" id="events-list"><li class="empty">Loading events…</li></ul>
+      <p class="more-link"><a href="https://berkeleyca.gov/community-recreation/events">See all City of Berkeley events</a> or <a href="https://berkeleypubliclibrary.libnet.info/events">Berkeley Public Library events</a></p>
+
+      <div class="duo">
+        <div id="newsletters">
+          <div class="sh sh-sm"><h2>Recent newsletters</h2></div>
+          <ul class="dl" id="news-list"><li class="empty">Loading newsletters…</li></ul>
+        </div>
+        <div id="spotlight">
+          <div class="sh sh-sm"><h2>Business spotlight</h2></div>
+          <div id="spot-box"><p class="empty">Loading…</p></div>
+        </div>
+      </div>
+      <p class="sample-note" id="sample-note" hidden>These are sample entries to show the layout. Replace them with real ones in <code>content.json</code> before launch.</p>
+    </div>
+  </section>
+
+  <section class="section" id="meetings" aria-labelledby="meetings-h">
+    <div class="inner">
+      <div class="sh"><h2 id="meetings-h">Upcoming council meetings</h2><span class="sh-note">Agendas as soon as the City Clerk posts them</span></div>
       <ul class="mtgs" id="upcoming"></ul>
       <p class="source" id="source"></p>
-    </section>
+    </div>
+  </section>
 
-    <section class="block" id="take-part" aria-labelledby="take-part-heading">
-      <h2 id="take-part-heading">How to take part</h2>
-      <p class="lede">Anyone can speak at a council meeting or send the council a comment. Check each meeting's agenda for the Zoom link and any changes.</p>
-      <dl class="ways">
+  <section class="band-blue" id="take-part" aria-labelledby="take-part-h">
+    <div class="inner">
+      <div class="sh sh-w"><h2 id="take-part-h">How to take part</h2></div>
+      <p class="lede">Anyone can speak at a council meeting or send the council a comment. Each meeting's agenda has the Zoom link and any changes.</p>
+      <div class="ways">
         <div class="way">
-          <dt>In person</dt>
-          <dd>Regular meetings are held in the School District Board Room, 1231 Addison St., Berkeley.</dd>
+          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#ECA02E"/><path d="M12 34h24M14 31V21m6.7 10V21m6.6 10V21M34 31V21M11 19l13-7 13 7z" fill="none" stroke="#000" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/></svg>
+          <h3>In person</h3>
+          <p>Regular meetings are held in the School District Board Room, 1231 Addison St., Berkeley.</p>
         </div>
         <div class="way">
-          <dt>On Zoom</dt>
-          <dd>Use the Zoom link on the agenda and raise your hand when public comment opens. By phone, dial the number on the agenda and press *9 to ask to speak.</dd>
+          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#ECA02E"/><rect x="11" y="16" width="19" height="16" rx="3" fill="none" stroke="#000" stroke-width="2.4"/><path d="M30 22l7-4v12l-7-4z" fill="none" stroke="#000" stroke-width="2.4" stroke-linejoin="round"/></svg>
+          <h3>On Zoom</h3>
+          <p>Use the Zoom link on the agenda and raise your hand when public comment opens. By phone, dial the number on the agenda and press *9.</p>
         </div>
         <div class="way">
-          <dt>In writing</dt>
-          <dd>Email <a href="mailto:council@berkeleyca.gov">council@berkeleyca.gov</a> to send a comment for the public record. Name the agenda item you're writing about.</dd>
+          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#ECA02E"/><rect x="11" y="15" width="26" height="18" rx="2" fill="none" stroke="#000" stroke-width="2.4"/><path d="M12 16l12 9 12-9" fill="none" stroke="#000" stroke-width="2.4" stroke-linejoin="round"/></svg>
+          <h3>In writing</h3>
+          <p>Email <a href="mailto:council@berkeleyca.gov">council@berkeleyca.gov</a> to add a comment to the public record. Name the agenda item you're writing about.</p>
         </div>
         <div class="way">
-          <dt>Watch</dt>
-          <dd>Meetings are broadcast live with captions on B-TV (Channel 33) and streamed online. Use the Watch link next to each meeting.</dd>
+          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#ECA02E"/><rect x="10" y="14" width="28" height="18" rx="2" fill="none" stroke="#000" stroke-width="2.4"/><path d="M18 36h12M24 32v4" stroke="#000" stroke-width="2.4" stroke-linecap="round"/></svg>
+          <h3>Watch</h3>
+          <p>Meetings air live with captions on B-TV (Channel 33) and stream online. Use the Watch link next to each meeting.</p>
         </div>
-      </dl>
-    </section>
-
-    <section class="block" id="recent" aria-labelledby="recent-heading">
-      <h2 id="recent-heading">Recent meetings</h2>
-      <p class="lede">The annotated agenda records what the council decided on each item. Videos stay online after the meeting.</p>
-      <ul class="mtgs" id="past"></ul>
-      <p class="source"><a href="https://berkeleyca.gov/your-government/city-council/city-council-agendas">See all past meetings on berkeleyca.gov</a></p>
-    </section>
-
-    <section class="block" id="contact" aria-labelledby="contact-heading">
-      <h2 id="contact-heading">Contact the District 5 office</h2>
-      <p class="lede">Questions about a neighborhood issue, a city service, or something on the agenda? Get in touch.</p>
-      <div class="contact">
-        <div><h3>Email</h3><p><span class="placeholder">[office email]</span></p></div>
-        <div><h3>Phone</h3><p><span class="placeholder">[office phone]</span></p></div>
-        <div><h3>Office hours</h3><p><span class="placeholder">[day, time, and place]</span></p></div>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
+
+  <section class="section" id="recent" aria-labelledby="recent-h">
+    <div class="inner">
+      <div class="sh"><h2 id="recent-h">Recent council meetings</h2><span class="sh-note">The annotated agenda shows what the council decided</span></div>
+      <ul class="mtgs" id="past"></ul>
+      <p class="source"><a href="https://berkeleyca.gov/your-government/city-council/city-council-agendas">All past meetings on berkeleyca.gov</a></p>
+    </div>
+  </section>
+
+  <section class="band-orange" id="contact" aria-labelledby="contact-h">
+    <div class="inner">
+      <div class="sh"><h2 id="contact-h">Contact the District&nbsp;5 office</h2></div>
+      <p class="lede">Questions about a neighborhood issue, a city service, or something on the agenda? Get in touch.</p>
+      <div class="contact-grid">
+        <div><h3>Email</h3><p><a href="mailto:sokeefe@berkeleyca.gov">sokeefe@berkeleyca.gov</a></p></div>
+        <div><h3>Phone</h3><p><a href="tel:+15109817150">(510) 981-7150</a></p></div>
+        <div><h3>Mail</h3><p>2180 Milvia Street, Berkeley, CA 94704</p></div>
+      </div>
+    </div>
+  </section>
 </main>
 
-<footer class="site">
-  <div class="wrap">
+<footer>
+  <div class="inner">
     <p>Office of Councilmember Shoshana O'Keefe, Berkeley City Council District 5.</p>
-    <p>Meeting listings are copied from the <a href="https://berkeleyca.gov/your-government/city-council/city-council-agendas">City of Berkeley agenda page</a>. If they differ, the city's page is correct.</p>
+    <p>Meeting listings come from the <a href="https://berkeleyca.gov/your-government/city-council/city-council-agendas">City of Berkeley agenda page</a>, where the City Clerk keeps the official record.</p>
   </div>
 </footer>
 
-<!-- Copy of meetings.json, used if that file can't be loaded (for example when opening this page straight from your computer). -->
+<!-- Copy of meetings.json, used if that file can't be loaded. The update script keeps it current. -->
 <script type="application/json" id="snapshot">{"source":"https://berkeleyca.gov/your-government/city-council/city-council-agendas","checked":"2026-11-22T01:45:47Z","meetings":[{"date":"2026-12-01","time":"6:00 pm","type":"Regular","page":"https://berkeleyca.gov/your-government/city-council/city-council-agendas/city-council-2026-12-01","agenda":"https://berkeleyca.gov/city-council-regular-meeting-eagenda-december-1-2026","packet":"https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-12-01%20Agenda%20Packet%20-%20Council%20-%20WEB.pdf","video":"https://berkeley.granicus.com/player/camera/5?publish_id=2537&redirect=true"},{"date":"2026-11-17","time":"6:00 pm","type":"Regular","page":"https://berkeleyca.gov/your-government/city-council/city-council-agendas/city-council-2026-11-17","agenda":"https://berkeleyca.gov/city-council-regular-meeting-eagenda-november-17-2026","packet":"https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-11-17%20Agenda%20Packet%20-%20Council%20-%20WEB.pdf","annotated":"https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-11-17%20Annotated%20Agenda%20-%20Council.pdf","video":"https://berkeley.granicus.com/MediaPlayer.php?publish_id=d179a0df-e392-11f1-9c50-005056a84798"},{"date":"2026-11-17","time":"4:00 pm","type":"Special","page":"https://berkeleyca.gov/your-government/city-council/city-council-agendas/city-council-2026-11-17-0","agenda":"https://berkeleyca.gov/city-council-special-meeting-eagenda-november-17-2026","packet":"https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-11-17%20Special%20Agenda%20Packet%20-%20Council%20-%20WEB.pdf","annotated":"https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-11-17%20Special%20Annotated%20Agenda%20-%20Council.pdf","video":"https://berkeley.granicus.com/MediaPlayer.php?publish_id=665dee89-e391-11f1-9c50-005056a84798"},{"date":"2026-11-12","time":"6:00 pm","type":"Canceled","page":"https://berkeleyca.gov/your-government/city-council/city-council-agendas/city-council-2026-11-12","agenda":"https://berkeleyca.gov/city-council-special-meeting-eagenda-november-12-2026","packet":"https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-11-12%20Agenda%20Packet%20-%20Council%20-%20WEB%20-%20CANCELLED.pdf"},{"date":"2026-11-09","time":"3:00 pm","type":"Closed Session","page":"https://berkeleyca.gov/your-government/city-council/city-council-agendas/city-council-2026-11-09","agenda":"https://berkeleyca.gov/city-council-special-closed-meeting-eagenda-november-9-2026","agendaPdf":"https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-11-09%20Special%20Closed%20Agenda%20-%20Council_0.pdf"}]}</script>
 
 <script>
-(function () {
-  var TZ = "America/Los_Angeles";
-  var CITY_PAGE = "https://berkeleyca.gov/your-government/city-council/city-council-agendas";
+{
+  const TZ = "America/Los_Angeles";
+  const CITY = "https://berkeleyca.gov/your-government/city-council/city-council-agendas";
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const day = iso => { const [y, m, d] = iso.split("-").map(Number); return new Date(Date.UTC(y, m - 1, d, 12)); };
+  const fmt = (iso, o) => new Intl.DateTimeFormat("en-US", { ...o, timeZone: "UTC" }).format(day(iso));
+  const today = () => new Intl.DateTimeFormat("en-CA", { timeZone: TZ }).format(new Date());
+  const mins = t => { const m = /(\d+):(\d+)\s*([ap]m)/i.exec(t || ""); return m ? (m[1] % 12 + (m[3].toLowerCase() === "pm" ? 12 : 0)) * 60 + +m[2] : 0; };
+  const names = { "Regular": "Regular meeting", "Special": "Special meeting", "Closed Session": "Closed session", "Canceled": "City Council meeting" };
+  const flag = (iso, cls = "") => `<div class="flag ${cls}" aria-hidden="true"><span>${fmt(iso, { month: "short" })}</span><b>${fmt(iso, { day: "numeric" })}</b></div>`;
+  const a = (href, text, when) => `<a href="${esc(href)}" aria-label="${esc(text + ", " + when)}">${esc(text)}</a>`;
 
-  function el(tag, attrs, kids) {
-    var n = document.createElement(tag);
-    for (var k in attrs || {}) {
-      if (k === "text") n.textContent = attrs[k];
-      else if (k === "class") n.className = attrs[k];
-      else n.setAttribute(k, attrs[k]);
-    }
-    (kids || []).forEach(function (c) { if (c) n.appendChild(typeof c === "string" ? document.createTextNode(c) : c); });
-    return n;
-  }
-  function dateOf(iso) { var p = iso.split("-"); return new Date(Date.UTC(+p[0], p[1] - 1, +p[2], 12)); }
-  function fmt(iso, opts) { opts.timeZone = "UTC"; return new Intl.DateTimeFormat("en-US", opts).format(dateOf(iso)); }
-  function todayISO() { return new Intl.DateTimeFormat("en-CA", { timeZone: TZ }).format(new Date()); }
-  function minutes(t) {
-    var m = /(\d+):(\d+)\s*([ap]m)/i.exec(t || ""); if (!m) return 0;
-    return (+m[1] % 12 + (m[3].toLowerCase() === "pm" ? 12 : 0)) * 60 + +m[2];
-  }
-  function label(type) {
-    return { "Regular": "Regular meeting", "Special": "Special meeting", "Closed Session": "Closed session", "Canceled": "Meeting canceled" }[type] || type;
-  }
-  function link(href, text, extra) {
-    return el("a", { href: href, text: text, "aria-label": extra ? text + ", " + extra : text });
-  }
-
-  function linksFor(m, past) {
-    var when = fmt(m.date, { month: "long", day: "numeric" });
-    var box = el("div", { class: "mtg-links" });
-    if (m.type === "Canceled") { box.appendChild(link(m.page, "Notice", when)); return box; }
-    if (m.agenda) box.appendChild(link(m.agenda, "Agenda", when));
-    if (m.packet) box.appendChild(link(m.packet, "Packet (PDF)", when));
-    else if (m.agendaPdf) box.appendChild(link(m.agendaPdf, "Agenda (PDF)", when));
-    if (past && m.annotated) box.appendChild(link(m.annotated, "Annotated agenda (PDF)", when));
-    if (m.video) box.appendChild(link(m.video, past ? "Video" : "Watch", when));
-    if (!box.childNodes.length) box.appendChild(el("span", { class: "mtg-note", text: "Agenda not posted yet" }));
-    return box;
-  }
-
-  function row(m, past) {
-    var canceled = m.type === "Canceled";
-    var name = el("div", { class: "mtg-name" }, [canceled ? "City Council meeting" : label(m.type)]);
-    if (canceled) name.appendChild(el("span", { class: "tag tag-canceled", text: "Canceled" }));
-    return el("li", { class: "mtg" + (canceled ? " is-canceled" : "") }, [
-      el("div", { class: "mtg-date" }, [
-        fmt(m.date, { weekday: "short", month: "short", day: "numeric", year: "numeric" }),
-        el("span", { text: m.time })
-      ]),
-      name,
-      linksFor(m, past)
-    ]);
-  }
-
-  function renderNext(m) {
-    var box = document.getElementById("next");
-    box.innerHTML = "";
+  /* ---- Council meetings ---- */
+  const links = (m, past) => {
+    const when = fmt(m.date, { month: "long", day: "numeric" });
+    if (m.type === "Canceled") return a(m.page, "Notice", when);
+    const out = [];
+    if (m.agenda) out.push(a(m.agenda, "Agenda", when));
+    if (m.packet) out.push(a(m.packet, "Packet (PDF)", when));
+    else if (m.agendaPdf) out.push(a(m.agendaPdf, "Agenda (PDF)", when));
+    if (past && m.annotated) out.push(a(m.annotated, "Annotated agenda", when));
+    if (m.video) out.push(a(m.video, past ? "Video" : "Watch", when));
+    return out.join("") || `<span class="none">Agenda not posted yet</span>`;
+  };
+  const row = (m, past) => {
+    const cls = m.type === "Canceled" ? "canceled" : m.type === "Closed Session" ? "closed" : "";
+    const tag = m.type === "Special" ? `<span class="tag tag-special">Special</span>`
+      : m.type === "Canceled" ? `<span class="tag tag-canceled">Canceled</span>` : "";
+    const title = m.type === "Special" ? "City Council meeting" : names[m.type] || m.type;
+    const fc = m.type === "Closed Session" || m.type === "Canceled" ? "flag-k" : "";
+    return `<li class="mtg ${cls}">${flag(m.date, fc)}
+      <div><p class="mtg-title">${esc(title)}${tag}</p>
+        <p class="mtg-sub">${fmt(m.date, { weekday: "long", month: "long", day: "numeric", year: "numeric" })}, ${esc(m.time)}</p></div>
+      <div class="mtg-links">${links(m, past)}</div></li>`;
+  };
+  const next = m => {
+    const box = document.getElementById("next");
     if (!m) {
-      box.appendChild(el("div", {}, [
-        el("h1", { id: "next-heading", text: "Next City Council meeting" }),
-        el("p", { class: "next-meta", text: "No upcoming meetings are posted yet." }),
-        el("p", { class: "next-where" }, ["Check the ", link(CITY_PAGE, "City of Berkeley agenda page"), " for the council's calendar."])
-      ]));
+      box.innerHTML = `<div class="next-txt"><p class="next-k">Next City Council meeting</p><p class="next-date">No meetings posted yet</p>
+        <p class="next-where">Check the <a href="${CITY}">City of Berkeley agenda page</a> for the council's calendar.</p></div>`;
       return;
     }
-    box.appendChild(el("div", { class: "tile", "aria-hidden": "true" }, [
-      el("span", { class: "tile-month", text: fmt(m.date, { month: "long" }) }),
-      el("span", { class: "tile-day", text: fmt(m.date, { day: "numeric" }) }),
-      el("span", { class: "tile-weekday", text: fmt(m.date, { weekday: "long" }) })
-    ]));
-    var where = m.type === "Closed Session"
-      ? "Location and Zoom details are on the agenda."
-      : "Usually held in the School District Board Room, 1231 Addison St., and on Zoom. The agenda has the Zoom link and any changes.";
-    var actions = el("div", { class: "actions" });
-    if (m.agenda) { var a = link(m.agenda, "Read the agenda"); a.className = "btn btn-primary"; actions.appendChild(a); }
-    if (m.packet) { var p = link(m.packet, "Agenda packet (PDF)"); p.className = "btn"; actions.appendChild(p); }
-    if (m.video) { var v = link(m.video, "Watch live"); v.className = "btn"; actions.appendChild(v); }
-    if (!actions.childNodes.length) actions.appendChild(el("p", { class: "next-where", text: "The agenda hasn't been posted yet." }));
-    box.appendChild(el("div", {}, [
-      el("h1", { id: "next-heading", text: "Next City Council meeting" }),
-      el("p", { class: "next-meta" }, [
-        el("strong", { text: fmt(m.date, { weekday: "long", month: "long", day: "numeric" }) }),
-        ", " + m.time + ". " + label(m.type) + "."
-      ]),
-      el("p", { class: "next-where", text: where }),
-      actions
-    ]));
-  }
-
-  function render(data) {
-    var today = todayISO();
-    var all = (data.meetings || []).slice();
-    var upcoming = all.filter(function (m) { return m.date >= today; })
-      .sort(function (a, b) { return a.date === b.date ? minutes(a.time) - minutes(b.time) : (a.date < b.date ? -1 : 1); });
-    var past = all.filter(function (m) { return m.date < today && m.type !== "Canceled" && m.type !== "Closed Session"; })
-      .sort(function (a, b) { return a.date === b.date ? minutes(b.time) - minutes(a.time) : (a.date < b.date ? 1 : -1); })
-      .slice(0, 6);
-
-    renderNext(upcoming.filter(function (m) { return m.type !== "Canceled"; })[0]);
-
-    var up = document.getElementById("upcoming"); up.innerHTML = "";
-    if (upcoming.length) upcoming.forEach(function (m) { up.appendChild(row(m, false)); });
-    else up.appendChild(el("li", { class: "empty", text: "No upcoming meetings are posted yet. New meetings appear here once the City Clerk posts them." }));
-    if (upcoming.length === 1) up.appendChild(el("li", { class: "empty", text: "Later meetings will appear here once the City Clerk posts them." }));
-
-    var pa = document.getElementById("past"); pa.innerHTML = "";
-    past.forEach(function (m) { pa.appendChild(row(m, true)); });
-    if (!past.length) pa.appendChild(el("li", { class: "empty", text: "No recent meetings to show." }));
-
-    var src = document.getElementById("source");
-    src.innerHTML = "";
+    const where = m.type === "Closed Session" ? "Location and Zoom details are on the agenda."
+      : "Usually in the School District Board Room, 1231 Addison St., and on Zoom. The agenda has the Zoom link and any changes.";
+    const btns = [];
+    if (m.agenda) btns.push(`<a class="btn" href="${esc(m.agenda)}">Read the agenda</a>`);
+    if (m.video) btns.push(`<a class="btn btn-o" href="${esc(m.video)}">Watch live</a>`);
+    box.innerHTML = `${flag(m.date, "flag-o")}
+      <div class="next-txt"><p class="next-k">Next City Council meeting</p>
+        <p class="next-date">${fmt(m.date, { weekday: "long", month: "long", day: "numeric" })}, ${esc(m.time)}</p>
+        <p class="next-where">${esc(m.type === "Special" ? "Special meeting" : names[m.type] || m.type)}. ${where}</p></div>
+      <div class="btns">${btns.join("")}</div>`;
+  };
+  const render = data => {
+    const t = today();
+    const all = data.meetings || [];
+    const byTime = (x, y) => x.date === y.date ? mins(x.time) - mins(y.time) : x.date < y.date ? -1 : 1;
+    const upcoming = all.filter(m => m.date >= t).sort(byTime);
+    const past = all.filter(m => m.date < t && m.type !== "Canceled" && m.type !== "Closed Session").sort((x, y) => byTime(y, x)).slice(0, 6);
+    next(upcoming.find(m => m.type !== "Canceled"));
+    document.getElementById("upcoming").innerHTML =
+      (upcoming.map(m => row(m, false)).join("") || `<li class="note">No upcoming meetings are posted yet.</li>`) +
+      (upcoming.length && upcoming.length < 3 ? `<li class="note">More meetings will appear here once the City Clerk posts them.</li>` : "");
+    document.getElementById("past").innerHTML = past.map(m => row(m, true)).join("") || `<li class="note">No recent meetings to show.</li>`;
     if (data.checked) {
-      var checked = new Date(data.checked);
-      var stamp = new Intl.DateTimeFormat("en-US", { timeZone: TZ, month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }).format(checked);
-      src.appendChild(document.createTextNode("Checked against the "));
-      src.appendChild(link(CITY_PAGE, "city's agenda page"));
-      src.appendChild(document.createTextNode(" on " + stamp + "."));
-      if (Date.now() - checked.getTime() > 3 * 864e5) src.appendChild(document.createTextNode(" This list may be out of date, so check the city's page for changes."));
+      const c = new Date(data.checked);
+      const s = new Intl.DateTimeFormat("en-US", { timeZone: TZ, month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }).format(c);
+      const stale = Date.now() - c.getTime() > 3 * 864e5 ? " This list may be out of date, so check the city's page for changes." : "";
+      document.getElementById("source").innerHTML = `Checked against the <a href="${CITY}">city's agenda page</a> on ${s}.${stale}`;
     }
-  }
+  };
 
-  var snapshot = {};
+  /* ---- Events, newsletters, business spotlight (from content.json) ---- */
+  const renderContent = c => {
+    const t = today();
+    const events = (c.events || []).filter(e => e.date >= t).sort((x, y) => x.date < y.date ? -1 : 1).slice(0, 3);
+    document.getElementById("events-list").innerHTML = events.map(e => `<li class="evt">${flag(e.date)}
+        <h3>${e.link ? `<a href="${esc(e.link)}">${esc(e.title)}</a>` : esc(e.title)}</h3>
+        <p>${fmt(e.date, { weekday: "long", month: "long", day: "numeric" })}${e.time ? ", " + esc(e.time) : ""}</p>
+        ${e.place ? `<p>${esc(e.place)}</p>` : ""}</li>`).join("")
+      || `<li class="empty">No upcoming events are posted yet.</li>`;
+    const letters = (c.newsletters || []).slice().sort((x, y) => x.month < y.month ? 1 : -1).slice(0, 4);
+    document.getElementById("news-list").innerHTML = letters.map(n => `<li><a href="${esc(n.link || "#newsletters")}">
+        <b>${esc(n.title)}</b><span>${fmt(n.month + "-01", { month: "short", year: "numeric" })}</span></a>
+        ${n.topics ? `<p class="dl-topics">${esc(n.topics)}</p>` : ""}</li>`).join("")
+      || `<li class="empty">No newsletters posted yet.</li>`;
+    const b = c.spotlight;
+    document.getElementById("spot-box").innerHTML = b && b.name ? `<div class="spot">
+        ${b.kind ? `<p class="spot-kind">${esc(b.kind)}</p>` : ""}
+        <p class="spot-name">${esc(b.name)}</p>
+        ${b.blurb ? `<p>${esc(b.blurb)}</p>` : ""}
+        ${b.address ? `<p>${esc(b.address)}</p>` : ""}
+        ${b.link ? `<p><a href="${esc(b.link)}">Visit their website</a></p>` : ""}
+        ${b.more ? `<p><a href="${esc(b.more)}">${esc(b.moreText || "Read more")}</a></p>` : ""}</div>`
+      : `<p class="empty">No business is featured right now.</p>`;
+    document.getElementById("sample-note").hidden = !c.sample;
+  };
+
+  fetch("content.json", { cache: "no-cache" })
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(renderContent)
+    .catch(() => renderContent({}));
+
+  let snapshot = {};
   try { snapshot = JSON.parse(document.getElementById("snapshot").textContent); } catch (e) {}
   fetch("meetings.json", { cache: "no-cache" })
-    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(render)
-    .catch(function () { render(snapshot); });
-})();
+    .catch(() => render(snapshot));
+}
 </script>
 </body>
 </html>
