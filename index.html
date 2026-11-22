@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Councilmember Shoshana O'Keefe, Berkeley District 5</title>
+<meta name="description" content="Berkeley City Council District 5: upcoming council meetings, agendas, and how to take part.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #16406E;
+    --navy-deep: #0F2E50;
+    --sky: #3FB4DC;
+    --sky-wash: #EAF6FB;
+    --ginkgo: #F5A623;
+    --ink: #1C2733;
+    --muted: #4F5D6B;
+    --rule: #D3DBE3;
+    --paper: #FFFFFF;
+    --serif: "Source Serif 4", Georgia, serif;
+    --sans: "Public Sans", system-ui, sans-serif;
+    --measure: 68ch;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font: 400 1.0625rem/1.6 var(--sans);
+  }
+  a { color: var(--navy); text-underline-offset: .18em; text-decoration-thickness: 1px; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 3px solid var(--ginkgo); outline-offset: 2px; }
+  .wrap { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
+  .skip { position: absolute; left: -999px; top: 0; background: var(--ginkgo); color: var(--ink); padding: .5rem 1rem; z-index: 10; }
+  .skip:focus { left: 1rem; }
+
+  /* Official strip */
+  .strip { background: var(--navy-deep); color: #DCE6F0; font-size: .875rem; }
+  .strip .wrap { padding-top: .45rem; padding-bottom: .45rem; }
+  .strip a { color: #fff; }
+
+  /* Header */
+  header.site { border-bottom: 4px solid var(--sky); }
+  header.site .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem; padding-top: 1.25rem; padding-bottom: 1.1rem; }
+  .brand { text-decoration: none; color: var(--ink); display: flex; align-items: center; gap: .9rem; }
+  .brand-mark { width: 44px; height: 44px; flex: none; }
+  .brand-name { display: block; font: 600 1.5rem/1.15 var(--serif); color: var(--navy); }
+  .brand-role { display: block; font-size: .9375rem; color: var(--muted); }
+  nav.primary ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 1.75rem; }
+  nav.primary a { font-weight: 600; text-decoration: none; color: var(--ink); padding: .35rem 0; border-bottom: 2px solid transparent; }
+  nav.primary a:hover { border-bottom-color: var(--sky); }
+
+  /* Next meeting */
+  .next { background: var(--sky-wash); border-bottom: 1px solid var(--rule); }
+  .next .wrap { display: grid; grid-template-columns: auto 1fr; gap: 2.5rem; align-items: center; padding-top: 3rem; padding-bottom: 3rem; }
+  .tile {
+    width: 11.5rem; background: var(--paper); border: 2px solid var(--navy);
+    text-align: center; box-shadow: 6px 6px 0 var(--navy);
+  }
+  .tile-month { display: block; background: var(--ginkgo); color: var(--ink); font-weight: 700; font-size: 1rem; padding: .45rem 0; border-bottom: 2px solid var(--navy); }
+  .tile-day { display: block; font: 700 5.5rem/1 var(--serif); color: var(--navy); padding: .9rem 0 .2rem; font-variant-numeric: lining-nums; }
+  .tile-weekday { display: block; font-weight: 600; color: var(--muted); padding-bottom: .9rem; }
+  .next h1 { font: 600 clamp(1.9rem, 3.4vw, 2.6rem)/1.15 var(--serif); color: var(--navy); margin: 0 0 .6rem; }
+  .next-meta { margin: 0 0 .35rem; font-size: 1.125rem; }
+  .next-where { margin: 0 0 1.5rem; color: var(--muted); max-width: var(--measure); }
+  .actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+  .btn {
+    display: inline-block; font-weight: 600; text-decoration: none; padding: .7rem 1.15rem;
+    border: 2px solid var(--navy); color: var(--navy); background: var(--paper); border-radius: 3px;
+  }
+  .btn:hover { background: #F2F6FA; }
+  .btn-primary { background: var(--navy); color: #fff; }
+  .btn-primary:hover { background: var(--navy-deep); }
+
+  /* Sections */
+  main section.block { padding: 3.25rem 0; border-bottom: 1px solid var(--rule); }
+  main section.block:last-child { border-bottom: 0; }
+  h2 { font: 600 1.85rem/1.2 var(--serif); color: var(--navy); margin: 0 0 .5rem; }
+  .lede { margin: 0 0 1.75rem; color: var(--muted); max-width: var(--measure); }
+
+  /* Meeting list */
+  .mtgs { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--navy); }
+  .mtg { display: grid; grid-template-columns: 11rem 1fr auto; gap: .5rem 2rem; align-items: baseline; padding: 1rem 0; border-bottom: 1px solid var(--rule); }
+  .mtg-date { font-weight: 700; }
+  .mtg-date span { display: block; font-weight: 400; color: var(--muted); }
+  .mtg-name { font-weight: 600; }
+  .mtg-note { display: block; font-weight: 400; color: var(--muted); font-size: .9375rem; }
+  .mtg-links { display: flex; flex-wrap: wrap; gap: .4rem 1.25rem; justify-content: flex-end; }
+  .mtg.is-canceled .mtg-date, .mtg.is-canceled .mtg-name { text-decoration: line-through; color: var(--muted); }
+  .tag { display: inline-block; font-size: .8125rem; font-weight: 700; padding: .05rem .45rem; border-radius: 2px; margin-left: .4rem; vertical-align: .1em; text-decoration: none; }
+  .tag-canceled { background: #FBE9E7; color: #8A2A1B; }
+  .empty { padding: 1.25rem 0; color: var(--muted); border-bottom: 1px solid var(--rule); margin: 0; }
+  .source { font-size: .9375rem; color: var(--muted); margin: 1rem 0 0; }
+
+  /* Take part */
+  .ways { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 3rem; margin: 0; }
+  .way { padding: 1.25rem 0 1.25rem 1.1rem; border-left: 4px solid var(--sky); margin-bottom: 1.25rem; }
+  .way dt { font: 600 1.25rem/1.3 var(--serif); color: var(--navy); margin-bottom: .35rem; }
+  .way dd { margin: 0; max-width: 34rem; }
+
+  /* Contact */
+  .contact { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
+  .contact h3 { font: 600 1.1rem/1.3 var(--sans); margin: 0 0 .35rem; }
+  .contact p { margin: 0; }
+  .placeholder { background: #FFF4DE; outline: 1px dashed var(--ginkgo); padding: 0 .2rem; }
+
+  footer.site { background: var(--navy); color: #DCE6F0; font-size: .9375rem; }
+  footer.site .wrap { padding-top: 2rem; padding-bottom: 2.25rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem 2rem; }
+  footer.site a { color: #fff; }
+  footer.site p { margin: 0; max-width: 46rem; }
+
+  @media (max-width: 760px) {
+    .next .wrap { grid-template-columns: 1fr; gap: 1.75rem; padding-top: 2rem; padding-bottom: 2.25rem; }
+    .tile { width: 9.5rem; }
+    .tile-day { font-size: 4.25rem; }
+    .mtg { grid-template-columns: 1fr; gap: .25rem; }
+    .mtg-links { justify-content: flex-start; margin-top: .25rem; }
+    .ways, .contact { grid-template-columns: 1fr; }
+    nav.primary ul { gap: 1.25rem; }
+  }
+  @media print {
+    .strip, nav.primary, .actions { display: none; }
+    .tile { box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+
+<div class="strip">
+  <div class="wrap">
+    Council District 5, City of Berkeley. Official meeting records are kept by the City Clerk at
+    <a href="https://berkeleyca.gov/your-government/city-council/city-council-agendas">berkeleyca.gov</a>.
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="./">
+      <!-- Replace this mark with the ginkgo logo file (e.g. <img src="ginkgo.png" class="brand-mark" alt="">) -->
+      <svg class="brand-mark" viewBox="0 0 44 44" aria-hidden="true">
+        <rect x="1" y="1" width="42" height="42" rx="3" fill="#16406E"/>
+        <text x="22" y="30" text-anchor="middle" font-family="Source Serif 4, Georgia, serif" font-size="22" font-weight="700" fill="#F5A623">5</text>
+      </svg>
+      <span>
+        <span class="brand-name">Councilmember Shoshana O'Keefe</span>
+        <span class="brand-role">Berkeley City Council, District 5</span>
+      </span>
+    </a>
+    <nav class="primary" aria-label="Main">
+      <ul>
+        <li><a href="#meetings">Meetings</a></li>
+        <li><a href="#take-part">Take part</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="next" aria-labelledby="next-heading">
+    <div class="wrap" id="next">
+      <!-- Filled in by the script below -->
+      <div class="tile" aria-hidden="true"><span class="tile-month">&nbsp;</span><span class="tile-day">&nbsp;</span><span class="tile-weekday">&nbsp;</span></div>
+      <div><h1 id="next-heading">Next City Council meeting</h1><p class="next-meta">Loading the meeting schedule…</p></div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <section class="block" id="meetings" aria-labelledby="upcoming-heading">
+      <h2 id="upcoming-heading">Upcoming meetings</h2>
+      <p class="lede">Every scheduled City Council meeting, with its agenda once the City Clerk posts it. Closed sessions are listed too.</p>
+      <ul class="mtgs" id="upcoming"></ul>
+      <p class="source" id="source"></p>
+    </section>
+
+    <section class="block" id="take-part" aria-labelledby="take-part-heading">
+      <h2 id="take-part-heading">How to take part</h2>
+      <p class="lede">Anyone can speak at a council meeting or send the council a comment. Check each meeting's agenda for the Zoom link and any changes.</p>
+      <dl class="ways">
+        <div class="way">
+          <dt>In person</dt>
+          <dd>Regular meetings are held in the School District Board Room, 1231 Addison St., Berkeley.</dd>
+        </div>
+        <div class="way">
+          <dt>On Zoom</dt>
+          <dd>Use the Zoom link on the agenda and raise your hand when public comment opens. By phone, dial the number on the agenda and press *9 to ask to speak.</dd>
+        </div>
+        <div class="way">
+          <dt>In writing</dt>
+          <dd>Email <a href="mailto:council@berkeleyca.gov">council@berkeleyca.gov</a> to send a comment for the public record. Name the agenda item you're writing about.</dd>
+        </div>
+        <div class="way">
+          <dt>Watch</dt>
+          <dd>Meetings are broadcast live with captions on B-TV (Channel 33) and streamed online. Use the Watch link next to each meeting.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="block" id="recent" aria-labelledby="recent-heading">
+      <h2 id="recent-heading">Recent meetings</h2>
+      <p class="lede">The annotated agenda records what the council decided on each item. Videos stay online after the meeting.</p>
+      <ul class="mtgs" id="past"></ul>
+      <p class="source"><a href="https://berkeleyca.gov/your-government/city-council/city-council-agendas">See all past meetings on berkeleyca.gov</a></p>
+    </section>
+
+    <section class="block" id="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact the District 5 office</h2>
+      <p class="lede">Questions about a neighborhood issue, a city service, or something on the agenda? Get in touch.</p>
+      <div class="contact">
+        <div><h3>Email</h3><p><span class="placeholder">[office email]</span></p></div>
+        <div><h3>Phone</h3><p><span class="placeholder">[office phone]</span></p></div>
+        <div><h3>Office hours</h3><p><span class="placeholder">[day, time, and place]</span></p></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>Office of Councilmember Shoshana O'Keefe, Berkeley City Council District 5.</p>
+    <p>Meeting listings are copied from the <a href="https://berkeleyca.gov/your-government/city-council/city-council-agendas">City of Berkeley agenda page</a>. If they differ, the city's page is correct.</p>
+  </div>
+</footer>
+
+<!-- Copy of meetings.json, used if that file can't be loaded (for example when opening this page straight from your computer). -->
+<script type="application/json" id="snapshot">{"source":"https://berkeleyca.gov/your-government/city-council/city-council-agendas","checked":"2026-11-22T01:45:47Z","meetings":[{"date":"2026-12-01","time":"6:00 pm","type":"Regular","page":"https://berkeleyca.gov/your-government/city-council/city-council-agendas/city-council-2026-12-01","agenda":"https://berkeleyca.gov/city-council-regular-meeting-eagenda-december-1-2026","packet":"https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-12-01%20Agenda%20Packet%20-%20Council%20-%20WEB.pdf","video":"https://berkeley.granicus.com/player/camera/5?publish_id=2537&redirect=true"},{"date":"2026-11-17","time":"6:00 pm","type":"Regular","page":"https://berkeleyca.gov/your-government/city-council/city-council-agendas/city-council-2026-11-17","agenda":"https://berkeleyca.gov/city-council-regular-meeting-eagenda-november-17-2026","packet":"https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-11-17%20Agenda%20Packet%20-%20Council%20-%20WEB.pdf","annotated":"https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-11-17%20Annotated%20Agenda%20-%20Council.pdf","video":"https://berkeley.granicus.com/MediaPlayer.php?publish_id=d179a0df-e392-11f1-9c50-005056a84798"},{"date":"2026-11-17","time":"4:00 pm","type":"Special","page":"https://berkeleyca.gov/your-government/city-council/city-council-agendas/city-council-2026-11-17-0","agenda":"https://berkeleyca.gov/city-council-special-meeting-eagenda-november-17-2026","packet":"https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-11-17%20Special%20Agenda%20Packet%20-%20Council%20-%20WEB.pdf","annotated":"https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-11-17%20Special%20Annotated%20Agenda%20-%20Council.pdf","video":"https://berkeley.granicus.com/MediaPlayer.php?publish_id=665dee89-e391-11f1-9c50-005056a84798"},{"date":"2026-11-12","time":"6:00 pm","type":"Canceled","page":"https://berkeleyca.gov/your-government/city-council/city-council-agendas/city-council-2026-11-12","agenda":"https://berkeleyca.gov/city-council-special-meeting-eagenda-november-12-2026","packet":"https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-11-12%20Agenda%20Packet%20-%20Council%20-%20WEB%20-%20CANCELLED.pdf"},{"date":"2026-11-09","time":"3:00 pm","type":"Closed Session","page":"https://berkeleyca.gov/your-government/city-council/city-council-agendas/city-council-2026-11-09","agenda":"https://berkeleyca.gov/city-council-special-closed-meeting-eagenda-november-9-2026","agendaPdf":"https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-11-09%20Special%20Closed%20Agenda%20-%20Council_0.pdf"}]}</script>
+
+<script>
+(function () {
+  var TZ = "America/Los_Angeles";
+  var CITY_PAGE = "https://berkeleyca.gov/your-government/city-council/city-council-agendas";
+
+  function el(tag, attrs, kids) {
+    var n = document.createElement(tag);
+    for (var k in attrs || {}) {
+      if (k === "text") n.textContent = attrs[k];
+      else if (k === "class") n.className = attrs[k];
+      else n.setAttribute(k, attrs[k]);
+    }
+    (kids || []).forEach(function (c) { if (c) n.appendChild(typeof c === "string" ? document.createTextNode(c) : c); });
+    return n;
+  }
+  function dateOf(iso) { var p = iso.split("-"); return new Date(Date.UTC(+p[0], p[1] - 1, +p[2], 12)); }
+  function fmt(iso, opts) { opts.timeZone = "UTC"; return new Intl.DateTimeFormat("en-US", opts).format(dateOf(iso)); }
+  function todayISO() { return new Intl.DateTimeFormat("en-CA", { timeZone: TZ }).format(new Date()); }
+  function minutes(t) {
+    var m = /(\d+):(\d+)\s*([ap]m)/i.exec(t || ""); if (!m) return 0;
+    return (+m[1] % 12 + (m[3].toLowerCase() === "pm" ? 12 : 0)) * 60 + +m[2];
+  }
+  function label(type) {
+    return { "Regular": "Regular meeting", "Special": "Special meeting", "Closed Session": "Closed session", "Canceled": "Meeting canceled" }[type] || type;
+  }
+  function link(href, text, extra) {
+    return el("a", { href: href, text: text, "aria-label": extra ? text + ", " + extra : text });
+  }
+
+  function linksFor(m, past) {
+    var when = fmt(m.date, { month: "long", day: "numeric" });
+    var box = el("div", { class: "mtg-links" });
+    if (m.type === "Canceled") { box.appendChild(link(m.page, "Notice", when)); return box; }
+    if (m.agenda) box.appendChild(link(m.agenda, "Agenda", when));
+    if (m.packet) box.appendChild(link(m.packet, "Packet (PDF)", when));
+    else if (m.agendaPdf) box.appendChild(link(m.agendaPdf, "Agenda (PDF)", when));
+    if (past && m.annotated) box.appendChild(link(m.annotated, "Annotated agenda (PDF)", when));
+    if (m.video) box.appendChild(link(m.video, past ? "Video" : "Watch", when));
+    if (!box.childNodes.length) box.appendChild(el("span", { class: "mtg-note", text: "Agenda not posted yet" }));
+    return box;
+  }
+
+  function row(m, past) {
+    var canceled = m.type === "Canceled";
+    var name = el("div", { class: "mtg-name" }, [canceled ? "City Council meeting" : label(m.type)]);
+    if (canceled) name.appendChild(el("span", { class: "tag tag-canceled", text: "Canceled" }));
+    return el("li", { class: "mtg" + (canceled ? " is-canceled" : "") }, [
+      el("div", { class: "mtg-date" }, [
+        fmt(m.date, { weekday: "short", month: "short", day: "numeric", year: "numeric" }),
+        el("span", { text: m.time })
+      ]),
+      name,
+      linksFor(m, past)
+    ]);
+  }
+
+  function renderNext(m) {
+    var box = document.getElementById("next");
+    box.innerHTML = "";
+    if (!m) {
+      box.appendChild(el("div", {}, [
+        el("h1", { id: "next-heading", text: "Next City Council meeting" }),
+        el("p", { class: "next-meta", text: "No upcoming meetings are posted yet." }),
+        el("p", { class: "next-where" }, ["Check the ", link(CITY_PAGE, "City of Berkeley agenda page"), " for the council's calendar."])
+      ]));
+      return;
+    }
+    box.appendChild(el("div", { class: "tile", "aria-hidden": "true" }, [
+      el("span", { class: "tile-month", text: fmt(m.date, { month: "long" }) }),
+      el("span", { class: "tile-day", text: fmt(m.date, { day: "numeric" }) }),
+      el("span", { class: "tile-weekday", text: fmt(m.date, { weekday: "long" }) })
+    ]));
+    var where = m.type === "Closed Session"
+      ? "Location and Zoom details are on the agenda."
+      : "Usually held in the School District Board Room, 1231 Addison St., and on Zoom. The agenda has the Zoom link and any changes.";
+    var actions = el("div", { class: "actions" });
+    if (m.agenda) { var a = link(m.agenda, "Read the agenda"); a.className = "btn btn-primary"; actions.appendChild(a); }
+    if (m.packet) { var p = link(m.packet, "Agenda packet (PDF)"); p.className = "btn"; actions.appendChild(p); }
+    if (m.video) { var v = link(m.video, "Watch live"); v.className = "btn"; actions.appendChild(v); }
+    if (!actions.childNodes.length) actions.appendChild(el("p", { class: "next-where", text: "The agenda hasn't been posted yet." }));
+    box.appendChild(el("div", {}, [
+      el("h1", { id: "next-heading", text: "Next City Council meeting" }),
+      el("p", { class: "next-meta" }, [
+        el("strong", { text: fmt(m.date, { weekday: "long", month: "long", day: "numeric" }) }),
+        ", " + m.time + ". " + label(m.type) + "."
+      ]),
+      el("p", { class: "next-where", text: where }),
+      actions
+    ]));
+  }
+
+  function render(data) {
+    var today = todayISO();
+    var all = (data.meetings || []).slice();
+    var upcoming = all.filter(function (m) { return m.date >= today; })
+      .sort(function (a, b) { return a.date === b.date ? minutes(a.time) - minutes(b.time) : (a.date < b.date ? -1 : 1); });
+    var past = all.filter(function (m) { return m.date < today && m.type !== "Canceled" && m.type !== "Closed Session"; })
+      .sort(function (a, b) { return a.date === b.date ? minutes(b.time) - minutes(a.time) : (a.date < b.date ? 1 : -1); })
+      .slice(0, 6);
+
+    renderNext(upcoming.filter(function (m) { return m.type !== "Canceled"; })[0]);
+
+    var up = document.getElementById("upcoming"); up.innerHTML = "";
+    if (upcoming.length) upcoming.forEach(function (m) { up.appendChild(row(m, false)); });
+    else up.appendChild(el("li", { class: "empty", text: "No upcoming meetings are posted yet. New meetings appear here once the City Clerk posts them." }));
+    if (upcoming.length === 1) up.appendChild(el("li", { class: "empty", text: "Later meetings will appear here once the City Clerk posts them." }));
+
+    var pa = document.getElementById("past"); pa.innerHTML = "";
+    past.forEach(function (m) { pa.appendChild(row(m, true)); });
+    if (!past.length) pa.appendChild(el("li", { class: "empty", text: "No recent meetings to show." }));
+
+    var src = document.getElementById("source");
+    src.innerHTML = "";
+    if (data.checked) {
+      var checked = new Date(data.checked);
+      var stamp = new Intl.DateTimeFormat("en-US", { timeZone: TZ, month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }).format(checked);
+      src.appendChild(document.createTextNode("Checked against the "));
+      src.appendChild(link(CITY_PAGE, "city's agenda page"));
+      src.appendChild(document.createTextNode(" on " + stamp + "."));
+      if (Date.now() - checked.getTime() > 3 * 864e5) src.appendChild(document.createTextNode(" This list may be out of date, so check the city's page for changes."));
+    }
+  }
+
+  var snapshot = {};
+  try { snapshot = JSON.parse(document.getElementById("snapshot").textContent); } catch (e) {}
+  fetch("meetings.json", { cache: "no-cache" })
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(render)
+    .catch(function () { render(snapshot); });
+})();
+</script>
+</body>
+</html>

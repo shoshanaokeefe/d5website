@@ -1,0 +1,51 @@
+{
+  "source": "https://berkeleyca.gov/your-government/city-council/city-council-agendas",
+  "checked": "2026-11-22T01:45:47Z",
+  "meetings": [
+    {
+      "date": "2026-12-01",
+      "time": "6:00 pm",
+      "type": "Regular",
+      "page": "https://berkeleyca.gov/your-government/city-council/city-council-agendas/city-council-2026-12-01",
+      "agenda": "https://berkeleyca.gov/city-council-regular-meeting-eagenda-december-1-2026",
+      "packet": "https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-12-01%20Agenda%20Packet%20-%20Council%20-%20WEB.pdf",
+      "video": "https://berkeley.granicus.com/player/camera/5?publish_id=2537&redirect=true"
+    },
+    {
+      "date": "2026-11-17",
+      "time": "6:00 pm",
+      "type": "Regular",
+      "page": "https://berkeleyca.gov/your-government/city-council/city-council-agendas/city-council-2026-11-17",
+      "agenda": "https://berkeleyca.gov/city-council-regular-meeting-eagenda-november-17-2026",
+      "packet": "https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-11-17%20Agenda%20Packet%20-%20Council%20-%20WEB.pdf",
+      "annotated": "https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-11-17%20Annotated%20Agenda%20-%20Council.pdf",
+      "video": "https://berkeley.granicus.com/MediaPlayer.php?publish_id=d179a0df-e392-11f1-9c50-005056a84798"
+    },
+    {
+      "date": "2026-11-17",
+      "time": "4:00 pm",
+      "type": "Special",
+      "page": "https://berkeleyca.gov/your-government/city-council/city-council-agendas/city-council-2026-11-17-0",
+      "agenda": "https://berkeleyca.gov/city-council-special-meeting-eagenda-november-17-2026",
+      "packet": "https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-11-17%20Special%20Agenda%20Packet%20-%20Council%20-%20WEB.pdf",
+      "annotated": "https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-11-17%20Special%20Annotated%20Agenda%20-%20Council.pdf",
+      "video": "https://berkeley.granicus.com/MediaPlayer.php?publish_id=665dee89-e391-11f1-9c50-005056a84798"
+    },
+    {
+      "date": "2026-11-12",
+      "time": "6:00 pm",
+      "type": "Canceled",
+      "page": "https://berkeleyca.gov/your-government/city-council/city-council-agendas/city-council-2026-11-12",
+      "agenda": "https://berkeleyca.gov/city-council-special-meeting-eagenda-november-12-2026",
+      "packet": "https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-11-12%20Agenda%20Packet%20-%20Council%20-%20WEB%20-%20CANCELLED.pdf"
+    },
+    {
+      "date": "2026-11-09",
+      "time": "3:00 pm",
+      "type": "Closed Session",
+      "page": "https://berkeleyca.gov/your-government/city-council/city-council-agendas/city-council-2026-11-09",
+      "agenda": "https://berkeleyca.gov/city-council-special-closed-meeting-eagenda-november-9-2026",
+      "agendaPdf": "https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-11-09%20Special%20Closed%20Agenda%20-%20Council_0.pdf"
+    }
+  ]
+}
