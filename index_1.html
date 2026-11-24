@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>District 5 site preview</title>
+<meta name="description" content="Berkeley District 5 news and information: events, newsletters, local businesses, and City Council meetings.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light;
+  --blue: #0082BA;
+  --blue-text: #006A99;
+  --orange: #ECA02E;
+  --black: #000;
+  --white: #fff;
+  --grey: rgba(0, 0, 0, .68);
+  --sans: "Montserrat", Arial, sans-serif;
+  --serif: "Lora", Georgia, serif;
+}
+* { box-sizing: border-box; min-width: 0; }
+[hidden] { display: none !important; }
+html { scroll-padding-top: 16px; }
+body { margin: 0; background: var(--white); color: var(--black); font: 18px/1.6 var(--serif); overflow-x: clip; }
+a { color: var(--blue-text); text-underline-offset: .18em; }
+a:hover { color: var(--black); }
+:focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; }
+.inner { max-width: 1200px; margin: 0 auto; padding: 0 max(4vw, 20px); }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--black); color: #fff; padding: 10px 16px; font: 700 14px var(--sans); z-index: 9; }
+.skip:focus { left: 8px; }
+
+/* Section headers */
+.sh { border-bottom: 8px solid var(--black); padding-bottom: 6px; margin: 0 0 28px; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 4px 20px; }
+.sh h2 { margin: 0; font: 700 clamp(26px, 3.2vw, 42px)/1 var(--sans); text-transform: uppercase; letter-spacing: -.5px; }
+.sh-note { font-style: italic; color: var(--grey); font-size: 16px; padding-bottom: 4px; }
+.sh-sm { border-bottom-width: 4px; }
+.sh-sm h2 { font-size: clamp(20px, 2.2vw, 26px); }
+.sh-w { border-color: var(--white); }
+.sh-w h2, .sh-w .sh-note { color: var(--white); }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; background: var(--blue-text); color: var(--white); font: 700 14px/1 var(--sans); letter-spacing: 1px; text-transform: uppercase; text-decoration: none; border: 3px solid var(--blue-text); }
+.btn:hover { background: var(--orange); border-color: var(--orange); color: var(--black); }
+.btn-o { background: var(--white); color: var(--blue-text); }
+.btns { display: flex; flex-wrap: wrap; gap: 10px; }
+
+/* Menu bar */
+.top { background: var(--orange); }
+.top .inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2px 24px; min-height: 56px; }
+.top-name { font: 800 15px var(--sans); letter-spacing: 1px; text-transform: uppercase; }
+.top ul { display: flex; flex-wrap: wrap; gap: 0 22px; margin: 0; padding: 0; list-style: none; }
+.top a { display: inline-block; padding: 14px 0 11px; border-bottom: 3px solid transparent; color: var(--black); font: 700 13px var(--sans); letter-spacing: 1px; text-transform: uppercase; text-decoration: none; }
+.top a:hover { border-bottom-color: var(--black); }
+
+/* Hero */
+.hero { position: relative; overflow: hidden; color: var(--white); text-align: center; border-bottom: 8px solid var(--black); background: var(--blue); }
+.hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 60%; }
+.hero::before { content: ""; position: absolute; inset: 0; z-index: 1; background: rgba(0, 104, 150, .74); }
+.hero .inner { position: relative; z-index: 2; padding-top: 88px; padding-bottom: 76px; }
+.hero h1 { margin: 0 auto 18px; max-width: 15ch; font: 800 clamp(44px, 7.4vw, 96px)/.98 var(--sans); text-transform: uppercase; letter-spacing: -2px; text-wrap: balance; }
+.hero-sub { margin: 0 auto 34px; max-width: 30em; font: italic 400 clamp(19px, 2vw, 24px)/1.45 var(--serif); }
+.hero-logo { display: block; width: 156px; height: auto; margin: 0 auto; }
+
+/* Date flags */
+.flag { flex: none; width: 74px; padding: 12px 0 20px; background: var(--blue); color: var(--white); text-align: center; font-family: var(--sans); text-transform: uppercase; line-height: 1; clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 84%, 0 100%); }
+.flag span { display: block; font-size: 13px; font-weight: 700; letter-spacing: 1px; margin-bottom: 4px; }
+.flag b { display: block; font-size: 32px; font-weight: 800; }
+.flag-o { background: var(--orange); color: var(--black); }
+.flag-k { background: var(--black); }
+
+/* Next meeting strip */
+.next { padding: 46px 0 10px; }
+.next-row { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 18px 28px; align-items: center; border: 3px solid var(--black); padding: 0 28px 0 24px; }
+.next-row .flag { align-self: start; width: 84px; }
+.next-row .flag b { font-size: 38px; }
+.next-txt { padding: 22px 0; }
+.next-k { margin: 0 0 2px; font: 700 13px var(--sans); letter-spacing: 1px; text-transform: uppercase; }
+.next-date { margin: 0; font: 700 26px/1.2 var(--sans); }
+.next-where { margin: 6px 0 0; color: var(--grey); font-size: 16px; }
+
+/* Sections */
+.section { padding: 56px 0; }
+
+/* Events */
+.events { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px; list-style: none; margin: 0; padding: 0; }
+.evt { position: relative; border-top: 3px solid var(--black); padding: 18px 96px 0 0; min-height: 150px; }
+.evt .flag { position: absolute; top: -3px; right: 0; }
+.evt h3 { margin: 0 0 10px; font: italic 600 24px/1.25 var(--serif); color: var(--blue-text); }
+.evt h3 a { color: inherit; }
+.evt p { margin: 0; color: var(--grey); font-size: 16px; }
+.more-link { margin: 26px 0 0; font-size: 16px; }
+.empty { color: var(--grey); font-style: italic; margin: 0; }
+
+.duo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; margin-top: 64px; }
+.dl { list-style: none; margin: 0; padding: 0; }
+.dl li { border-bottom: 1px solid rgba(0, 0, 0, .25); }
+.dl-topics { margin: -8px 0 15px; color: var(--grey); font-size: 15px; font-style: italic; }
+.dl a { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 15px 0; text-decoration: none; color: var(--black); }
+.dl a b { font: italic 600 21px/1.3 var(--serif); color: var(--blue-text); }
+.dl a:hover b { text-decoration: underline; }
+.subscribe { margin: 22px 0 12px; font-size: 17px; }
+.dl a span { font: 700 12px var(--sans); letter-spacing: 1px; text-transform: uppercase; color: var(--grey); white-space: nowrap; }
+.spot { background: var(--orange); padding: 28px 30px 30px; border-left: 8px solid var(--black); }
+.spot .spot-name { margin: 0 0 4px; font: italic 600 30px/1.15 var(--serif); }
+.spot .spot-kind { margin: 0 0 14px; font: 700 13px var(--sans); letter-spacing: 1px; text-transform: uppercase; }
+.spot p { margin: 0 0 12px; font-size: 17px; }
+.spot a { color: var(--black); font-weight: 600; }
+.sample-note { margin: 34px 0 0; padding: 12px 16px; border: 3px dashed var(--orange); font-size: 15px; }
+
+/* Corridors Zoning Update */
+.cz-lede { max-width: 44em; margin: 0 0 30px; }
+.cz-hearing { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 16px 24px; align-items: center; margin: 0 0 34px; padding: 0 24px 0 20px; border: 3px solid var(--black); }
+.cz-hearing .flag { align-self: start; }
+.cz-hearing p { margin: 18px 0; font-size: 17px; }
+.cz-hearing strong { font-family: var(--sans); text-transform: uppercase; letter-spacing: .5px; font-size: 16px; }
+.cz-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px; margin: 0 0 30px; }
+.cz-card { border-top: 8px solid var(--blue); padding-top: 16px; }
+.cz-card h3 { margin: 0 0 12px; font: 700 22px var(--sans); text-transform: uppercase; letter-spacing: .5px; }
+.cz-card dl { margin: 0; display: grid; grid-template-columns: 9.5em minmax(0, 1fr); gap: 10px 18px; }
+.cz-card dt { font: 700 12px/1.9 var(--sans); letter-spacing: 1px; text-transform: uppercase; color: var(--grey); }
+.cz-card dd { margin: 0; font-size: 17px; }
+.cz-also { max-width: 48em; margin: 0 0 30px; padding-left: 22px; font-size: 17px; }
+.cz-also li { margin-bottom: 8px; }
+.cz-maps { margin: 0 0 30px; padding: 22px 26px; border: 3px solid var(--blue-text); }
+.cz-maps h3 { margin: 0 0 6px; font: 700 15px var(--sans); letter-spacing: 1px; text-transform: uppercase; }
+.cz-maps p { margin: 0 0 8px; font-size: 17px; }
+.cz-maps ul { margin: 0; padding-left: 22px; font-size: 17px; }
+.cz-maps li { margin-bottom: 4px; }
+.cz-map { margin: 22px 0 0; }
+.cz-map img { display: block; width: 100%; height: auto; border: 1px solid rgba(0, 0, 0, .25); }
+.cz-map-tall { max-width: 440px; }
+.cz-map figcaption { margin-top: 6px; font: 700 13px var(--sans); letter-spacing: 1px; text-transform: uppercase; }
+.cz-maps-more { margin: 20px 0 0 !important; font-size: 16px !important; }
+.cz-note h3 { margin: 0 0 8px; font: 700 13px var(--sans); letter-spacing: 1px; text-transform: uppercase; }
+.cz-note p:last-child { margin-bottom: 0; }
+.cz-btns { margin-top: 28px; }
+.cz-comment { margin: 24px 0 0; font-size: 16px; color: var(--grey); max-width: 48em; }
+
+/* Council meetings */
+.mtgs { list-style: none; margin: 0; padding: 0; }
+.mtg { display: grid; grid-template-columns: 74px minmax(0, 1fr) auto; gap: 8px 24px; align-items: center; padding: 0 0 18px; margin-bottom: 18px; border-bottom: 1px solid rgba(0, 0, 0, .25); }
+.mtg .flag { align-self: start; }
+.mtg-title { margin: 0; font: 700 18px/1.3 var(--sans); text-transform: uppercase; letter-spacing: .5px; }
+.mtg-sub { margin: 4px 0 0; color: var(--grey); font-size: 16px; }
+.mtg.canceled .mtg-title { text-decoration: line-through; }
+.mtg-links { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+.mtg-links a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: 2px solid var(--blue-text); color: var(--blue-text); font: 700 12px var(--sans); letter-spacing: 1px; text-transform: uppercase; text-decoration: none; white-space: nowrap; }
+.mtg-links a:hover { background: var(--blue-text); color: var(--white); }
+.mtg-links .none { font-style: italic; color: var(--grey); font-size: 16px; }
+.tag { display: inline-block; margin-left: 8px; padding: 3px 8px; font: 700 11px var(--sans); letter-spacing: 1px; vertical-align: 2px; text-decoration: none; }
+.tag-special { background: var(--orange); color: var(--black); }
+.tag-canceled { background: var(--black); color: var(--white); }
+.note { color: var(--grey); font-style: italic; margin: 0 0 18px; }
+.source { color: var(--grey); font-size: 15px; margin: 0; }
+
+/* Take part */
+.band-blue { background: var(--blue-text); color: var(--white); padding: 62px 0 66px; }
+.band-blue .lede { font-style: italic; margin: -10px 0 34px; max-width: 40em; }
+.ways { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 34px; }
+.way { border-top: 3px solid var(--white); padding-top: 18px; }
+.way svg { width: 52px; height: 52px; display: block; margin-bottom: 12px; }
+.way h3 { margin: 0 0 6px; font: 700 18px var(--sans); letter-spacing: .5px; text-transform: uppercase; }
+.way p { margin: 0; font-size: 17px; }
+.way a { color: var(--white); font-weight: 600; }
+
+/* Contact */
+.band-orange { background: var(--orange); padding: 58px 0 62px; }
+.band-orange .lede { font-style: italic; margin: -10px 0 30px; }
+.contact-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px; }
+.contact-grid h3 { margin: 0 0 4px; font: 700 15px var(--sans); letter-spacing: 1px; text-transform: uppercase; }
+.contact-grid p { margin: 0; font-size: 19px; }
+.contact-grid a { color: var(--black); font-weight: 600; }
+
+footer { background: var(--black); color: var(--white); font-size: 15px; }
+footer .inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 32px; padding-top: 30px; padding-bottom: 34px; }
+footer p { margin: 0; max-width: 46em; }
+footer a { color: var(--white); }
+
+@media (max-width: 960px) {
+  .events { grid-template-columns: 1fr; gap: 26px; }
+  .cz-grid { grid-template-columns: 1fr; }
+  .duo { grid-template-columns: 1fr; }
+  .ways { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .next-row { grid-template-columns: auto minmax(0, 1fr); }
+  .next-row .btns { grid-column: 1 / -1; padding-bottom: 24px; }
+}
+@media (max-width: 600px) {
+  body { font-size: 17px; }
+  .top .inner { padding-top: 6px; padding-bottom: 6px; }
+  .top ul { gap: 0 16px; }
+  .hero .inner { padding-top: 56px; padding-bottom: 50px; }
+  .hero h1 { letter-spacing: -1px; }
+  .hero-logo { width: 130px; }
+  .next-row { padding: 0 16px; gap: 14px 16px; }
+  .next-row .flag { width: 68px; }
+  .next-row .flag b { font-size: 30px; }
+  .next-date { font-size: 21px; }
+  .mtg { grid-template-columns: 64px minmax(0, 1fr); gap: 8px 16px; }
+  .mtg .flag { width: 64px; }
+  .mtg-links { grid-column: 1 / -1; justify-content: flex-start; }
+  .ways, .contact-grid { grid-template-columns: 1fr; }
+}
+@media print { .top ul, .btns, .mtg-links { display: none; } .hero, .band-blue { background: #fff; color: #000; } .hero::before, .hero-img { display: none; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+
+<header class="top">
+  <div class="inner">
+    <span class="top-name">Berkeley District 5</span>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#corridors">Corridors rezoning</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#newsletters">Newsletters</a></li>
+        <li><a href="#spotlight">Businesses</a></li>
+        <li><a href="#meetings">Council meetings</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="https://lp.constantcontactpages.com/sl/dJBS6si">Subscribe</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="page-title">
+    <img class="hero-img" src="fountain.jpg" width="764" height="428" alt="">
+    <div class="inner">
+      <h1 id="page-title">Berkeley District&nbsp;5 News and Information</h1>
+      <p class="hero-sub">Events, newsletters, local businesses and City Council meetings for District&nbsp;5 neighbors.</p>
+      <img class="hero-logo" src="d5-logo.png" width="1148" height="592" alt="Shoshana O'Keefe, Councilmember District 5">
+    </div>
+  </section>
+
+  <section class="next" aria-label="Next City Council meeting">
+    <div class="inner">
+      <div class="next-row" id="next"><div class="next-txt"><p class="next-where">Loading the meeting schedule…</p></div></div>
+    </div>
+  </section>
+
+  <section class="section" id="corridors" aria-labelledby="corridors-h">
+    <div class="inner">
+      <div class="sh"><h2 id="corridors-h">Corridors Zoning Update</h2><span class="sh-note">New zoning for Solano Avenue and North Shattuck</span></div>
+      <p class="cz-lede">The City is rewriting the zoning for three commercial corridors: Solano Avenue, North Shattuck, and College Avenue in Elmwood. Two of them, Solano and North Shattuck, are in District&nbsp;5. Berkeley's 2023&ndash;2031 Housing Element named these as priority corridors for new housing. The update aims to allow more homes near shops and transit, advance fair housing, and set clear, objective building standards, while supporting the businesses already there. Planning began in 2024, with community workshops, a survey, and Planning Commission hearings along the way.</p>
+      <p class="cz-lede">The plan keeps today's height limits along most of each street and allows taller buildings only on selected sites called <b>mixed-use opportunity areas</b>. City staff chose these sites for their size, orientation, access, and ownership. Neighboring parcels can't be combined to qualify.</p>
+
+      <div class="cz-hearing" data-until="2026-12-01">
+        <div class="flag flag-o" aria-hidden="true"><span>Dec</span><b>1</b></div>
+        <p><strong>City Council hearing: Tuesday, December&nbsp;1, 6:00&nbsp;pm.</strong> The Council will hold a public hearing and vote on the first reading of the zoning ordinance, along with General Plan amendments. Attend at 1231 Addison St. or on Zoom; the Zoom link is on the <a href="https://berkeleyca.gov/city-council-regular-meeting-eagenda-december-1-2026">meeting agenda</a>.</p>
+      </div>
+
+      <div class="cz-grid">
+        <div class="cz-card">
+          <h3>Solano Avenue</h3>
+          <dl>
+            <dt>Today</dt><dd>Up to 2 stories (28&nbsp;feet)</dd>
+            <dt>Most of the street</dt><dd>No change: 2 stories (28&nbsp;feet)</dd>
+            <dt>Opportunity areas</dt><dd>Up to 6 stories (68&nbsp;feet)</dd>
+            <dt>With a density bonus</dt><dd>About 8&ndash;9 stories (98&nbsp;feet) with a 50% state density bonus</dd>
+            <dt>New homes</dt><dd>About 528 projected, 53 of them affordable</dd>
+            <dt>Also</dt><dd>The Andronico's parking lot parcels would be rezoned from R-1 to commercial (C-SO)</dd>
+          </dl>
+        </div>
+        <div class="cz-card">
+          <h3>North Shattuck</h3>
+          <dl>
+            <dt>Today</dt><dd>Up to 3 stories (35&nbsp;feet)</dd>
+            <dt>Most of the street</dt><dd>3 stories, with the limit raised to 38&nbsp;feet</dd>
+            <dt>Opportunity areas</dt><dd>Up to 7 stories (78&nbsp;feet)</dd>
+            <dt>With a density bonus</dt><dd>About 9&ndash;11 stories (118&nbsp;feet) with a 50% state density bonus</dd>
+            <dt>New homes</dt><dd>About 1,080 projected, 108 of them affordable</dd>
+          </dl>
+        </div>
+      </div>
+
+      <ul class="cz-also">
+        <li><b>Shops on the ground floor.</b> At least 80% of a building's main street frontage must be commercial or live/work space. In Commercial Priority Zones, ground-floor commercial is required and ground-floor apartments aren't allowed.</li>
+        <li><b>Storefronts ready to rent.</b> New commercial space must be delivered as a &ldquo;warm shell,&rdquo; with ventilation, utility capacity, and grease interceptors.</li>
+        <li><b>Big stores stay.</b> If a commercial space over 18,000 square feet is torn down, the new building must include at least 10,000 square feet of commercial space.</li>
+        <li><b>Notice for business tenants.</b> Developers must notify commercial tenants in writing before applying for a permit. Staff also recommend that the City Manager study business license tax relief and relocation help for displaced businesses.</li>
+        <li><b>Simpler approvals.</b> Qualifying projects could be approved with an administrative use permit, and lot coverage limits and upper-floor stepbacks are dropped.</li>
+        <li><b>Density bonus.</b> The density bonus heights above are City estimates, not zoning limits. State law allows them only when a project includes below-market-rate homes.</li>
+        <li><b>Emergency services.</b> Staff would come back after five years to check the effect on emergency response.</li>
+      </ul>
+
+      <div class="cz-maps">
+        <h3>Where the opportunity areas are</h3>
+        <p>The dark green parcels are mixed-use opportunity areas, where the taller limits would apply. The rest of the outlined corridor keeps the base limits. Maps from the City's December&nbsp;1 staff report.</p>
+        <figure class="cz-map">
+          <img src="solano-map.png" width="1256" height="450" loading="lazy" alt="Map of Solano Avenue from Neilson Street to The Alameda. Opportunity areas are on the north side at Ensenada and Colusa, and on the south side between Ensenada and Fresno, including a large site at Colusa Avenue.">
+          <figcaption>Solano Avenue</figcaption>
+        </figure>
+        <figure class="cz-map cz-map-tall">
+          <img src="shattuck-map.png" width="762" height="1202" loading="lazy" alt="Map of North Shattuck Avenue from Henry and Rose Streets south to Virginia Street. Opportunity areas include large sites on the west side between Rose and Cedar and parcels on both sides from Cedar to Virginia.">
+          <figcaption>North Shattuck</figcaption>
+        </figure>
+        <p class="cz-maps-more">These maps and the Commercial Priority Zone maps (Figures 5 and 6, page 15), are in the <a href="https://berkeleyca.gov/sites/default/files/2026-12-01%20Item%2019%20Corridors%20Zoning%20and%20General%20Plan.pdf">staff report</a>.</p>
+      </div>
+
+      <div class="spot cz-note">
+        <h3>From Councilmember O'Keefe</h3>
+        <p>I'm working with colleagues on a change that would lower the opportunity-area height limits by one floor: 5 stories on Solano and 6 on Shattuck. Lower limits would encourage builders to use the state density bonus, which requires affordable homes built on site instead of a fee paid to the City. I see it as a step toward housing equity.</p>
+        <p><a href="https://conta.cc/4ASfET8">Read my full announcement</a></p>
+      </div>
+
+      <div class="btns cz-btns">
+        <a class="btn" href="https://berkeleyca.gov/construction-development/land-use-development/general-plan-and-area-plans/corridors-zoning-update">City project page</a>
+        <a class="btn btn-o" href="https://berkeleyca.gov/sites/default/files/2026-12-01%20Item%2019%20Corridors%20Zoning%20and%20General%20Plan.pdf">Dec 1 staff report (PDF)</a>
+      </div>
+      <p class="cz-comment">To comment, email the City Council at <a href="mailto:council@berkeleyca.gov">council@berkeleyca.gov</a> or the District&nbsp;5 office at <a href="mailto:sokeefe@berkeleyca.gov">sokeefe@berkeleyca.gov</a>. Questions about the project can go to City planning staff at <a href="mailto:corridors@berkeleyca.gov">corridors@berkeleyca.gov</a>.</p>
+    </div>
+  </section>
+
+  <section class="section" id="events" aria-labelledby="events-h">
+    <div class="inner">
+      <div class="sh"><h2 id="events-h">Upcoming events</h2><span class="sh-note">Coming up around Berkeley</span></div>
+      <ul class="events" id="events-list"><li class="empty">Loading events…</li></ul>
+      <p class="more-link"><a href="https://berkeleyca.gov/community-recreation/events">See all City of Berkeley events</a> or <a href="https://berkeleypubliclibrary.libnet.info/events">Berkeley Public Library events</a></p>
+
+      <div class="duo">
+        <div id="newsletters">
+          <div class="sh sh-sm"><h2>Recent newsletters</h2></div>
+          <ul class="dl" id="news-list"><li class="empty">Loading newsletters…</li></ul>
+          <p class="subscribe">Get the District&nbsp;5 newsletter in your inbox each month.</p>
+          <a class="btn" href="https://lp.constantcontactpages.com/sl/dJBS6si">Sign up for the newsletter</a>
+        </div>
+        <div id="spotlight">
+          <div class="sh sh-sm"><h2>Business spotlight</h2></div>
+          <div id="spot-box"><p class="empty">Loading…</p></div>
+        </div>
+      </div>
+      <p class="sample-note" id="sample-note" hidden>These are sample entries to show the layout. Replace them with real ones in <code>content.json</code> before launch.</p>
+    </div>
+  </section>
+
+  <section class="section" id="meetings" aria-labelledby="meetings-h">
+    <div class="inner">
+      <div class="sh"><h2 id="meetings-h">Upcoming council meetings</h2><span class="sh-note">Agendas as soon as the City Clerk posts them</span></div>
+      <ul class="mtgs" id="upcoming"></ul>
+      <p class="source" id="source"></p>
+    </div>
+  </section>
+
+  <section class="band-blue" id="take-part" aria-labelledby="take-part-h">
+    <div class="inner">
+      <div class="sh sh-w"><h2 id="take-part-h">How to take part</h2></div>
+      <p class="lede">Anyone can speak at a council meeting or send the council a comment. Each meeting's agenda has the Zoom link and any changes.</p>
+      <div class="ways">
+        <div class="way">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#ECA02E"/><path d="M12 34h24M14 31V21m6.7 10V21m6.6 10V21M34 31V21M11 19l13-7 13 7z" fill="none" stroke="#000" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/></svg>
+          <h3>In person</h3>
+          <p>Regular meetings are held in the School District Board Room, 1231 Addison St., Berkeley.</p>
+        </div>
+        <div class="way">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#ECA02E"/><rect x="11" y="16" width="19" height="16" rx="3" fill="none" stroke="#000" stroke-width="2.4"/><path d="M30 22l7-4v12l-7-4z" fill="none" stroke="#000" stroke-width="2.4" stroke-linejoin="round"/></svg>
+          <h3>On Zoom</h3>
+          <p>Use the Zoom link on the agenda and raise your hand when public comment opens. By phone, dial the number on the agenda and press *9.</p>
+        </div>
+        <div class="way">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#ECA02E"/><rect x="11" y="15" width="26" height="18" rx="2" fill="none" stroke="#000" stroke-width="2.4"/><path d="M12 16l12 9 12-9" fill="none" stroke="#000" stroke-width="2.4" stroke-linejoin="round"/></svg>
+          <h3>In writing</h3>
+          <p>Email <a href="mailto:council@berkeleyca.gov">council@berkeleyca.gov</a> to add a comment to the public record. Name the agenda item you're writing about.</p>
+        </div>
+        <div class="way">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#ECA02E"/><rect x="10" y="14" width="28" height="18" rx="2" fill="none" stroke="#000" stroke-width="2.4"/><path d="M18 36h12M24 32v4" stroke="#000" stroke-width="2.4" stroke-linecap="round"/></svg>
+          <h3>Watch</h3>
+          <p>Meetings air live with captions on B-TV (Channel 33) and stream online. Use the Watch link next to each meeting.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="recent" aria-labelledby="recent-h">
+    <div class="inner">
+      <div class="sh"><h2 id="recent-h">Recent council meetings</h2><span class="sh-note">The annotated agenda shows what the council decided</span></div>
+      <ul class="mtgs" id="past"></ul>
+      <p class="source"><a href="https://berkeleyca.gov/your-government/city-council/city-council-agendas">All past meetings on berkeleyca.gov</a></p>
+    </div>
+  </section>
+
+  <section class="band-orange" id="contact" aria-labelledby="contact-h">
+    <div class="inner">
+      <div class="sh"><h2 id="contact-h">Contact the District&nbsp;5 office</h2></div>
+      <p class="lede">Questions about a neighborhood issue, a city service, or something on the agenda? Get in touch.</p>
+      <div class="contact-grid">
+        <div><h3>Email</h3><p><a href="mailto:sokeefe@berkeleyca.gov">sokeefe@berkeleyca.gov</a></p></div>
+        <div><h3>Phone</h3><p><a href="tel:+15109817150">(510) 981-7150</a></p></div>
+        <div><h3>Mail</h3><p>2180 Milvia Street, Berkeley, CA 94704</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="inner">
+    <p>Office of Councilmember Shoshana O'Keefe, Berkeley City Council District 5.</p>
+    <p>Meeting listings come from the <a href="https://berkeleyca.gov/your-government/city-council/city-council-agendas">City of Berkeley agenda page</a>, where the City Clerk keeps the official record.</p>
+  </div>
+</footer>
+
+<!-- Fallback copy of meetings.json -->
+<script type="application/json" id="snapshot">{"source":"https://berkeleyca.gov/your-government/city-council/city-council-agendas","checked":"2026-11-22T01:45:47Z","meetings":[{"date":"2026-12-01","time":"6:00 pm","type":"Regular","page":"https://berkeleyca.gov/your-government/city-council/city-council-agendas/city-council-2026-12-01","agenda":"https://berkeleyca.gov/city-council-regular-meeting-eagenda-december-1-2026","packet":"https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-12-01%20Agenda%20Packet%20-%20Council%20-%20WEB.pdf","video":"https://berkeley.granicus.com/player/camera/5?publish_id=2537&redirect=true"},{"date":"2026-11-17","time":"6:00 pm","type":"Regular","page":"https://berkeleyca.gov/your-government/city-council/city-council-agendas/city-council-2026-11-17","agenda":"https://berkeleyca.gov/city-council-regular-meeting-eagenda-november-17-2026","packet":"https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-11-17%20Agenda%20Packet%20-%20Council%20-%20WEB.pdf","annotated":"https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-11-17%20Annotated%20Agenda%20-%20Council.pdf","video":"https://berkeley.granicus.com/MediaPlayer.php?publish_id=d179a0df-e392-11f1-9c50-005056a84798"},{"date":"2026-11-17","time":"4:00 pm","type":"Special","page":"https://berkeleyca.gov/your-government/city-council/city-council-agendas/city-council-2026-11-17-0","agenda":"https://berkeleyca.gov/city-council-special-meeting-eagenda-november-17-2026","packet":"https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-11-17%20Special%20Agenda%20Packet%20-%20Council%20-%20WEB.pdf","annotated":"https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-11-17%20Special%20Annotated%20Agenda%20-%20Council.pdf","video":"https://berkeley.granicus.com/MediaPlayer.php?publish_id=665dee89-e391-11f1-9c50-005056a84798"},{"date":"2026-11-12","time":"6:00 pm","type":"Canceled","page":"https://berkeleyca.gov/your-government/city-council/city-council-agendas/city-council-2026-11-12","agenda":"https://berkeleyca.gov/city-council-special-meeting-eagenda-november-12-2026","packet":"https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-11-12%20Agenda%20Packet%20-%20Council%20-%20WEB%20-%20CANCELLED.pdf"},{"date":"2026-11-09","time":"3:00 pm","type":"Closed Session","page":"https://berkeleyca.gov/your-government/city-council/city-council-agendas/city-council-2026-11-09","agenda":"https://berkeleyca.gov/city-council-special-closed-meeting-eagenda-november-9-2026","agendaPdf":"https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-11-09%20Special%20Closed%20Agenda%20-%20Council_0.pdf"}]}</script>
+
+<script>
+{
+  const TZ = "America/Los_Angeles";
+  const CITY = "https://berkeleyca.gov/your-government/city-council/city-council-agendas";
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const day = iso => { const [y, m, d] = iso.split("-").map(Number); return new Date(Date.UTC(y, m - 1, d, 12)); };
+  const fmt = (iso, o) => new Intl.DateTimeFormat("en-US", { ...o, timeZone: "UTC" }).format(day(iso));
+  const today = () => new Intl.DateTimeFormat("en-CA", { timeZone: TZ }).format(new Date());
+  const mins = t => { const m = /(\d+):(\d+)\s*([ap]m)/i.exec(t || ""); return m ? (m[1] % 12 + (m[3].toLowerCase() === "pm" ? 12 : 0)) * 60 + +m[2] : 0; };
+  const names = { "Regular": "Regular meeting", "Special": "Special meeting", "Closed Session": "Closed session", "Canceled": "City Council meeting" };
+  const flag = (iso, cls = "") => `<div class="flag ${cls}" aria-hidden="true"><span>${fmt(iso, { month: "short" })}</span><b>${fmt(iso, { day: "numeric" })}</b></div>`;
+  const a = (href, text, when) => `<a href="${esc(href)}" aria-label="${esc(text + ", " + when)}">${esc(text)}</a>`;
+
+  /* ---- Council meetings ---- */
+  const links = (m, past) => {
+    const when = fmt(m.date, { month: "long", day: "numeric" });
+    if (m.type === "Canceled") return a(m.page, "Notice", when);
+    const out = [];
+    if (m.agenda) out.push(a(m.agenda, "Agenda", when));
+    if (m.packet) out.push(a(m.packet, "Packet (PDF)", when));
+    else if (m.agendaPdf) out.push(a(m.agendaPdf, "Agenda (PDF)", when));
+    if (past && m.annotated) out.push(a(m.annotated, "Annotated agenda", when));
+    if (m.video) out.push(a(m.video, past ? "Video" : "Watch", when));
+    return out.join("") || `<span class="none">Agenda not posted yet</span>`;
+  };
+  const row = (m, past) => {
+    const cls = m.type === "Canceled" ? "canceled" : m.type === "Closed Session" ? "closed" : "";
+    const tag = m.type === "Special" ? `<span class="tag tag-special">Special</span>`
+      : m.type === "Canceled" ? `<span class="tag tag-canceled">Canceled</span>` : "";
+    const title = m.type === "Special" ? "City Council meeting" : names[m.type] || m.type;
+    const fc = m.type === "Closed Session" || m.type === "Canceled" ? "flag-k" : "";
+    return `<li class="mtg ${cls}">${flag(m.date, fc)}
+      <div><p class="mtg-title">${esc(title)}${tag}</p>
+        <p class="mtg-sub">${fmt(m.date, { weekday: "long", month: "long", day: "numeric", year: "numeric" })}, ${esc(m.time)}</p></div>
+      <div class="mtg-links">${links(m, past)}</div></li>`;
+  };
+  const next = m => {
+    const box = document.getElementById("next");
+    if (!m) {
+      box.innerHTML = `<div class="next-txt"><p class="next-k">Next City Council meeting</p><p class="next-date">No meetings posted yet</p>
+        <p class="next-where">Check the <a href="${CITY}">City of Berkeley agenda page</a> for the council's calendar.</p></div>`;
+      return;
+    }
+    const where = m.type === "Closed Session" ? "Location and Zoom details are on the agenda."
+      : "Usually in the School District Board Room, 1231 Addison St., and on Zoom. The agenda has the Zoom link and any changes.";
+    const btns = [];
+    if (m.agenda) btns.push(`<a class="btn" href="${esc(m.agenda)}">Read the agenda</a>`);
+    if (m.video) btns.push(`<a class="btn btn-o" href="${esc(m.video)}">Watch live</a>`);
+    box.innerHTML = `${flag(m.date, "flag-o")}
+      <div class="next-txt"><p class="next-k">Next City Council meeting</p>
+        <p class="next-date">${fmt(m.date, { weekday: "long", month: "long", day: "numeric" })}, ${esc(m.time)}</p>
+        <p class="next-where">${esc(m.type === "Special" ? "Special meeting" : names[m.type] || m.type)}. ${where}</p></div>
+      <div class="btns">${btns.join("")}</div>`;
+  };
+  const render = data => {
+    const t = today();
+    const all = data.meetings || [];
+    const byTime = (x, y) => x.date === y.date ? mins(x.time) - mins(y.time) : x.date < y.date ? -1 : 1;
+    const upcoming = all.filter(m => m.date >= t).sort(byTime);
+    const past = all.filter(m => m.date < t && m.type !== "Canceled" && m.type !== "Closed Session").sort((x, y) => byTime(y, x)).slice(0, 6);
+    next(upcoming.find(m => m.type !== "Canceled"));
+    document.getElementById("upcoming").innerHTML =
+      (upcoming.map(m => row(m, false)).join("") || `<li class="note">No upcoming meetings are posted yet.</li>`) +
+      (upcoming.length && upcoming.length < 3 ? `<li class="note">More meetings will appear here once the City Clerk posts them.</li>` : "");
+    document.getElementById("past").innerHTML = past.map(m => row(m, true)).join("") || `<li class="note">No recent meetings to show.</li>`;
+    if (data.checked) {
+      const c = new Date(data.checked);
+      const s = new Intl.DateTimeFormat("en-US", { timeZone: TZ, month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }).format(c);
+      const stale = Date.now() - c.getTime() > 3 * 864e5 ? " This list may be out of date, so check the city's page for changes." : "";
+      document.getElementById("source").innerHTML = `Checked against the <a href="${CITY}">city's agenda page</a> on ${s}.${stale}`;
+    }
+  };
+
+  /* ---- Events, newsletters, business spotlight (from content.json) ---- */
+  const renderContent = c => {
+    const t = today();
+    const events = (c.events || []).filter(e => e.date >= t).sort((x, y) => x.date < y.date ? -1 : 1).slice(0, 3);
+    document.getElementById("events-list").innerHTML = events.map(e => `<li class="evt">${flag(e.date)}
+        <h3>${e.link ? `<a href="${esc(e.link)}">${esc(e.title)}</a>` : esc(e.title)}</h3>
+        <p>${fmt(e.date, { weekday: "long", month: "long", day: "numeric" })}${e.time ? ", " + esc(e.time) : ""}</p>
+        ${e.place ? `<p>${esc(e.place)}</p>` : ""}</li>`).join("")
+      || `<li class="empty">No upcoming events are posted yet.</li>`;
+    const letters = (c.newsletters || []).slice().sort((x, y) => x.month < y.month ? 1 : -1).slice(0, 4);
+    document.getElementById("news-list").innerHTML = letters.map(n => `<li><a href="${esc(n.link || "#newsletters")}">
+        <b>${esc(n.title)}</b><span>${fmt(n.month + "-01", { month: "short", year: "numeric" })}</span></a>
+        ${n.topics ? `<p class="dl-topics">${esc(n.topics)}</p>` : ""}</li>`).join("")
+      || `<li class="empty">No newsletters posted yet.</li>`;
+    const b = c.spotlight;
+    document.getElementById("spot-box").innerHTML = b && b.name ? `<div class="spot">
+        ${b.kind ? `<p class="spot-kind">${esc(b.kind)}</p>` : ""}
+        <p class="spot-name">${esc(b.name)}</p>
+        ${b.blurb ? `<p>${esc(b.blurb)}</p>` : ""}
+        ${b.address ? `<p>${esc(b.address)}</p>` : ""}
+        ${b.link ? `<p><a href="${esc(b.link)}">Visit their website</a></p>` : ""}
+        ${b.more ? `<p><a href="${esc(b.more)}">${esc(b.moreText || "Read more")}</a></p>` : ""}</div>`
+      : `<p class="empty">No business is featured right now.</p>`;
+    document.getElementById("sample-note").hidden = !c.sample;
+  };
+
+  /* Hide expired notices */
+  document.querySelectorAll("[data-until]").forEach(el => { if (today() > el.dataset.until) el.hidden = true; });
+
+  fetch("content.json", { cache: "no-cache" })
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(renderContent)
+    .catch(() => renderContent({}));
+
+  let snapshot = {};
+  try { snapshot = JSON.parse(document.getElementById("snapshot").textContent); } catch (e) {}
+  fetch("meetings.json", { cache: "no-cache" })
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(render)
+    .catch(() => render(snapshot));
+}
+</script>
+</body>
+</html>
