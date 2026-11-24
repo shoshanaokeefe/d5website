@@ -9,15 +9,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
-/* VOICE: a confident civic bulletin, in the manner of Boston.gov's open design system.
-   IDEA: city-hall signage: bold capitals sitting on heavy rules, serif text you can read for a while.
-   PICTURE: the neighborhood fountain under a blue wash, with the title set big across it.
-   COLOUR and TYPE: the logo's blue, ginkgo orange and white, plus black; Montserrat capitals for headings, Lora for text.
-   LAYOUT: orange menu bar, photo hero with a black base rule, next-meeting strip, ruled sections, blue how-to band, orange contact band. */
 :root {
   color-scheme: light;
   --blue: #0082BA;
-  --blue-text: #006A99;   /* the logo blue, deepened for text on white */
+  --blue-text: #006A99;
   --orange: #ECA02E;
   --black: #000;
   --white: #fff;
@@ -26,6 +21,7 @@
   --serif: "Lora", Georgia, serif;
 }
 * { box-sizing: border-box; min-width: 0; }
+[hidden] { display: none !important; }
 html { scroll-padding-top: 16px; }
 body { margin: 0; background: var(--white); color: var(--black); font: 18px/1.6 var(--serif); overflow-x: clip; }
 a { color: var(--blue-text); text-underline-offset: .18em; }
@@ -35,7 +31,7 @@ a:hover { color: var(--black); }
 .skip { position: absolute; left: -999px; top: 8px; background: var(--black); color: #fff; padding: 10px 16px; font: 700 14px var(--sans); z-index: 9; }
 .skip:focus { left: 8px; }
 
-/* Section header: capitals on a heavy rule */
+/* Section headers */
 .sh { border-bottom: 8px solid var(--black); padding-bottom: 6px; margin: 0 0 28px; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 4px 20px; }
 .sh h2 { margin: 0; font: 700 clamp(26px, 3.2vw, 42px)/1 var(--sans); text-transform: uppercase; letter-spacing: -.5px; }
 .sh-note { font-style: italic; color: var(--grey); font-size: 16px; padding-bottom: 4px; }
@@ -44,7 +40,7 @@ a:hover { color: var(--black); }
 .sh-w { border-color: var(--white); }
 .sh-w h2, .sh-w .sh-note { color: var(--white); }
 
-/* Buttons: square, capital letters */
+/* Buttons */
 .btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; background: var(--blue-text); color: var(--white); font: 700 14px/1 var(--sans); letter-spacing: 1px; text-transform: uppercase; text-decoration: none; border: 3px solid var(--blue-text); }
 .btn:hover { background: var(--orange); border-color: var(--orange); color: var(--black); }
 .btn-o { background: var(--white); color: var(--blue-text); }
@@ -67,7 +63,7 @@ a:hover { color: var(--black); }
 .hero-sub { margin: 0 auto 34px; max-width: 30em; font: italic 400 clamp(19px, 2vw, 24px)/1.45 var(--serif); }
 .hero-logo { display: block; width: 156px; height: auto; margin: 0 auto; }
 
-/* Date flag: a bookmark-shaped tag */
+/* Date flags */
 .flag { flex: none; width: 74px; padding: 12px 0 20px; background: var(--blue); color: var(--white); text-align: center; font-family: var(--sans); text-transform: uppercase; line-height: 1; clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 84%, 0 100%); }
 .flag span { display: block; font-size: 13px; font-weight: 700; letter-spacing: 1px; margin-bottom: 4px; }
 .flag b { display: block; font-size: 32px; font-weight: 800; }
@@ -113,6 +109,35 @@ a:hover { color: var(--black); }
 .spot a { color: var(--black); font-weight: 600; }
 .sample-note { margin: 34px 0 0; padding: 12px 16px; border: 3px dashed var(--orange); font-size: 15px; }
 
+/* Corridors Zoning Update */
+.cz-lede { max-width: 44em; margin: 0 0 30px; }
+.cz-hearing { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 16px 24px; align-items: center; margin: 0 0 34px; padding: 0 24px 0 20px; border: 3px solid var(--black); }
+.cz-hearing .flag { align-self: start; }
+.cz-hearing p { margin: 18px 0; font-size: 17px; }
+.cz-hearing strong { font-family: var(--sans); text-transform: uppercase; letter-spacing: .5px; font-size: 16px; }
+.cz-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px; margin: 0 0 30px; }
+.cz-card { border-top: 8px solid var(--blue); padding-top: 16px; }
+.cz-card h3 { margin: 0 0 12px; font: 700 22px var(--sans); text-transform: uppercase; letter-spacing: .5px; }
+.cz-card dl { margin: 0; display: grid; grid-template-columns: 9.5em minmax(0, 1fr); gap: 10px 18px; }
+.cz-card dt { font: 700 12px/1.9 var(--sans); letter-spacing: 1px; text-transform: uppercase; color: var(--grey); }
+.cz-card dd { margin: 0; font-size: 17px; }
+.cz-also { max-width: 48em; margin: 0 0 30px; padding-left: 22px; font-size: 17px; }
+.cz-also li { margin-bottom: 8px; }
+.cz-maps { margin: 0 0 30px; padding: 22px 26px; border: 3px solid var(--blue-text); }
+.cz-maps h3 { margin: 0 0 6px; font: 700 15px var(--sans); letter-spacing: 1px; text-transform: uppercase; }
+.cz-maps p { margin: 0 0 8px; font-size: 17px; }
+.cz-maps ul { margin: 0; padding-left: 22px; font-size: 17px; }
+.cz-maps li { margin-bottom: 4px; }
+.cz-map { margin: 22px 0 0; }
+.cz-map img { display: block; width: 100%; height: auto; border: 1px solid rgba(0, 0, 0, .25); }
+.cz-map-tall { max-width: 440px; }
+.cz-map figcaption { margin-top: 6px; font: 700 13px var(--sans); letter-spacing: 1px; text-transform: uppercase; }
+.cz-maps-more { margin: 20px 0 0 !important; font-size: 16px !important; }
+.cz-note h3 { margin: 0 0 8px; font: 700 13px var(--sans); letter-spacing: 1px; text-transform: uppercase; }
+.cz-note p:last-child { margin-bottom: 0; }
+.cz-btns { margin-top: 28px; }
+.cz-comment { margin: 24px 0 0; font-size: 16px; color: var(--grey); max-width: 48em; }
+
 /* Council meetings */
 .mtgs { list-style: none; margin: 0; padding: 0; }
 .mtg { display: grid; grid-template-columns: 74px minmax(0, 1fr) auto; gap: 8px 24px; align-items: center; padding: 0 0 18px; margin-bottom: 18px; border-bottom: 1px solid rgba(0, 0, 0, .25); }
@@ -155,6 +180,7 @@ footer a { color: var(--white); }
 
 @media (max-width: 960px) {
   .events { grid-template-columns: 1fr; gap: 26px; }
+  .cz-grid { grid-template-columns: 1fr; }
   .duo { grid-template-columns: 1fr; }
   .ways { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .next-row { grid-template-columns: auto minmax(0, 1fr); }
@@ -187,6 +213,7 @@ footer a { color: var(--white); }
     <span class="top-name">Berkeley District 5</span>
     <nav aria-label="Main">
       <ul>
+        <li><a href="#corridors">Corridors rezoning</a></li>
         <li><a href="#events">Events</a></li>
         <li><a href="#newsletters">Newsletters</a></li>
         <li><a href="#spotlight">Businesses</a></li>
@@ -211,6 +238,79 @@ footer a { color: var(--white); }
   <section class="next" aria-label="Next City Council meeting">
     <div class="inner">
       <div class="next-row" id="next"><div class="next-txt"><p class="next-where">Loading the meeting schedule…</p></div></div>
+    </div>
+  </section>
+
+  <section class="section" id="corridors" aria-labelledby="corridors-h">
+    <div class="inner">
+      <div class="sh"><h2 id="corridors-h">Corridors Zoning Update</h2><span class="sh-note">New zoning for Solano Avenue and North Shattuck</span></div>
+      <p class="cz-lede">The City is rewriting the zoning for three commercial corridors: Solano Avenue, North Shattuck, and College Avenue in Elmwood. Two of them, Solano and North Shattuck, are in District&nbsp;5. Berkeley's 2023&ndash;2031 Housing Element named these as priority corridors for new housing. The update aims to allow more homes near shops and transit, advance fair housing, and set clear, objective building standards, while supporting the businesses already there. Planning began in 2024, with community workshops, a survey, and Planning Commission hearings along the way.</p>
+      <p class="cz-lede">The plan keeps today's height limits along most of each street and allows taller buildings only on selected sites called <b>mixed-use opportunity areas</b>. City staff chose these sites for their size, orientation, access, and ownership. Neighboring parcels can't be combined to qualify.</p>
+
+      <div class="cz-hearing" data-until="2026-12-01">
+        <div class="flag flag-o" aria-hidden="true"><span>Dec</span><b>1</b></div>
+        <p><strong>City Council hearing: Tuesday, December&nbsp;1, 6:00&nbsp;pm.</strong> The Council will hold a public hearing and vote on the first reading of the zoning ordinance, along with General Plan amendments. Attend at 1231 Addison St. or on Zoom; the Zoom link is on the <a href="https://berkeleyca.gov/city-council-regular-meeting-eagenda-december-1-2026">meeting agenda</a>.</p>
+      </div>
+
+      <div class="cz-grid">
+        <div class="cz-card">
+          <h3>Solano Avenue</h3>
+          <dl>
+            <dt>Today</dt><dd>Up to 2 stories (28&nbsp;feet)</dd>
+            <dt>Most of the street</dt><dd>No change: 2 stories (28&nbsp;feet)</dd>
+            <dt>Opportunity areas</dt><dd>Up to 6 stories (68&nbsp;feet)</dd>
+            <dt>With a density bonus</dt><dd>About 8&ndash;9 stories (98&nbsp;feet) with a 50% state density bonus</dd>
+            <dt>New homes</dt><dd>About 528 projected, 53 of them affordable</dd>
+            <dt>Also</dt><dd>The Andronico's parking lot parcels would be rezoned from R-1 to commercial (C-SO)</dd>
+          </dl>
+        </div>
+        <div class="cz-card">
+          <h3>North Shattuck</h3>
+          <dl>
+            <dt>Today</dt><dd>Up to 3 stories (35&nbsp;feet)</dd>
+            <dt>Most of the street</dt><dd>3 stories, with the limit raised to 38&nbsp;feet</dd>
+            <dt>Opportunity areas</dt><dd>Up to 7 stories (78&nbsp;feet)</dd>
+            <dt>With a density bonus</dt><dd>About 9&ndash;11 stories (118&nbsp;feet) with a 50% state density bonus</dd>
+            <dt>New homes</dt><dd>About 1,080 projected, 108 of them affordable</dd>
+          </dl>
+        </div>
+      </div>
+
+      <ul class="cz-also">
+        <li><b>Shops on the ground floor.</b> At least 80% of a building's main street frontage must be commercial or live/work space. In Commercial Priority Zones, ground-floor commercial is required and ground-floor apartments aren't allowed.</li>
+        <li><b>Storefronts ready to rent.</b> New commercial space must be delivered as a &ldquo;warm shell,&rdquo; with ventilation, utility capacity, and grease interceptors.</li>
+        <li><b>Big stores stay.</b> If a commercial space over 18,000 square feet is torn down, the new building must include at least 10,000 square feet of commercial space.</li>
+        <li><b>Notice for business tenants.</b> Developers must notify commercial tenants in writing before applying for a permit. Staff also recommend that the City Manager study business license tax relief and relocation help for displaced businesses.</li>
+        <li><b>Simpler approvals.</b> Qualifying projects could be approved with an administrative use permit, and lot coverage limits and upper-floor stepbacks are dropped.</li>
+        <li><b>Density bonus.</b> The density bonus heights above are City estimates, not zoning limits. State law allows them only when a project includes below-market-rate homes.</li>
+        <li><b>Emergency services.</b> Staff would come back after five years to check the effect on emergency response.</li>
+      </ul>
+
+      <div class="cz-maps">
+        <h3>Where the opportunity areas are</h3>
+        <p>The dark green parcels are mixed-use opportunity areas, where the taller limits would apply. The rest of the outlined corridor keeps the base limits. Maps from the City's December&nbsp;1 staff report.</p>
+        <figure class="cz-map">
+          <img src="solano-map.png" width="1256" height="450" loading="lazy" alt="Map of Solano Avenue from Neilson Street to The Alameda. Opportunity areas are on the north side at Ensenada and Colusa, and on the south side between Ensenada and Fresno, including a large site at Colusa Avenue.">
+          <figcaption>Solano Avenue</figcaption>
+        </figure>
+        <figure class="cz-map cz-map-tall">
+          <img src="shattuck-map.png" width="762" height="1202" loading="lazy" alt="Map of North Shattuck Avenue from Henry and Rose Streets south to Virginia Street. Opportunity areas include large sites on the west side between Rose and Cedar and parcels on both sides from Cedar to Virginia.">
+          <figcaption>North Shattuck</figcaption>
+        </figure>
+        <p class="cz-maps-more">These maps and the Commercial Priority Zone maps (Figures 5 and 6, page 15), are in the <a href="https://berkeleyca.gov/sites/default/files/2026-12-01%20Item%2019%20Corridors%20Zoning%20and%20General%20Plan.pdf">staff report</a>.</p>
+      </div>
+
+      <div class="spot cz-note">
+        <h3>From Councilmember O'Keefe</h3>
+        <p>I'm working with colleagues on a change that would lower the opportunity-area height limits by one floor: 5 stories on Solano and 6 on Shattuck. Lower limits would encourage builders to use the state density bonus, which requires affordable homes built on site instead of a fee paid to the City. I see it as a step toward housing equity.</p>
+        <p><a href="https://conta.cc/4ASfET8">Read my full announcement</a></p>
+      </div>
+
+      <div class="btns cz-btns">
+        <a class="btn" href="https://berkeleyca.gov/construction-development/land-use-development/general-plan-and-area-plans/corridors-zoning-update">City project page</a>
+        <a class="btn btn-o" href="https://berkeleyca.gov/sites/default/files/2026-12-01%20Item%2019%20Corridors%20Zoning%20and%20General%20Plan.pdf">Dec 1 staff report (PDF)</a>
+      </div>
+      <p class="cz-comment">To comment, email the City Council at <a href="mailto:council@berkeleyca.gov">council@berkeleyca.gov</a> or the District&nbsp;5 office at <a href="mailto:sokeefe@berkeleyca.gov">sokeefe@berkeleyca.gov</a>. Questions about the project can go to City planning staff at <a href="mailto:corridors@berkeleyca.gov">corridors@berkeleyca.gov</a>.</p>
     </div>
   </section>
 
@@ -301,7 +401,7 @@ footer a { color: var(--white); }
   </div>
 </footer>
 
-<!-- Copy of meetings.json, used if that file can't be loaded. The update script keeps it current. -->
+<!-- Fallback copy of meetings.json -->
 <script type="application/json" id="snapshot">{"source":"https://berkeleyca.gov/your-government/city-council/city-council-agendas","checked":"2026-11-22T01:45:47Z","meetings":[{"date":"2026-12-01","time":"6:00 pm","type":"Regular","page":"https://berkeleyca.gov/your-government/city-council/city-council-agendas/city-council-2026-12-01","agenda":"https://berkeleyca.gov/city-council-regular-meeting-eagenda-december-1-2026","packet":"https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-12-01%20Agenda%20Packet%20-%20Council%20-%20WEB.pdf","video":"https://berkeley.granicus.com/player/camera/5?publish_id=2537&redirect=true"},{"date":"2026-11-17","time":"6:00 pm","type":"Regular","page":"https://berkeleyca.gov/your-government/city-council/city-council-agendas/city-council-2026-11-17","agenda":"https://berkeleyca.gov/city-council-regular-meeting-eagenda-november-17-2026","packet":"https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-11-17%20Agenda%20Packet%20-%20Council%20-%20WEB.pdf","annotated":"https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-11-17%20Annotated%20Agenda%20-%20Council.pdf","video":"https://berkeley.granicus.com/MediaPlayer.php?publish_id=d179a0df-e392-11f1-9c50-005056a84798"},{"date":"2026-11-17","time":"4:00 pm","type":"Special","page":"https://berkeleyca.gov/your-government/city-council/city-council-agendas/city-council-2026-11-17-0","agenda":"https://berkeleyca.gov/city-council-special-meeting-eagenda-november-17-2026","packet":"https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-11-17%20Special%20Agenda%20Packet%20-%20Council%20-%20WEB.pdf","annotated":"https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-11-17%20Special%20Annotated%20Agenda%20-%20Council.pdf","video":"https://berkeley.granicus.com/MediaPlayer.php?publish_id=665dee89-e391-11f1-9c50-005056a84798"},{"date":"2026-11-12","time":"6:00 pm","type":"Canceled","page":"https://berkeleyca.gov/your-government/city-council/city-council-agendas/city-council-2026-11-12","agenda":"https://berkeleyca.gov/city-council-special-meeting-eagenda-november-12-2026","packet":"https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-11-12%20Agenda%20Packet%20-%20Council%20-%20WEB%20-%20CANCELLED.pdf"},{"date":"2026-11-09","time":"3:00 pm","type":"Closed Session","page":"https://berkeleyca.gov/your-government/city-council/city-council-agendas/city-council-2026-11-09","agenda":"https://berkeleyca.gov/city-council-special-closed-meeting-eagenda-november-9-2026","agendaPdf":"https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-11-09%20Special%20Closed%20Agenda%20-%20Council_0.pdf"}]}</script>
 
 <script>
@@ -402,6 +502,9 @@ footer a { color: var(--white); }
       : `<p class="empty">No business is featured right now.</p>`;
     document.getElementById("sample-note").hidden = !c.sample;
   };
+
+  /* Hide expired notices */
+  document.querySelectorAll("[data-until]").forEach(el => { if (today() > el.dataset.until) el.hidden = true; });
 
   fetch("content.json", { cache: "no-cache" })
     .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
