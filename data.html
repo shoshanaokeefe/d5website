@@ -225,6 +225,17 @@ footer a { color: var(--white); }
 }
 @media print { .top ul, .btns, .mtg-links { display: none; } .hero, .band-blue { background: #fff; color: #000; } .hero::before, .hero-img { display: none; } }
 /* Data page */
+.views { padding: 34px 0 0; }
+.views .inner { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.view { display: block; padding: 20px 22px 22px; border: 3px solid var(--black); color: var(--black); text-decoration: none; }
+.view b { display: block; margin: 6px 0 2px; font: 800 clamp(30px, 4vw, 46px)/1 var(--sans); }
+.view span { display: block; color: var(--grey); font-size: 16px; }
+.view .view-k { color: var(--blue-text); font: 700 14px var(--sans); letter-spacing: 1px; text-transform: uppercase; }
+.view:hover { border-color: var(--orange); color: var(--black); }
+.view[aria-current="true"] { background: var(--blue-text); border-color: var(--blue-text); color: var(--white); }
+.view[aria-current="true"] span, .view[aria-current="true"] .view-k { color: var(--white); }
+.dv-card.dv-narrow { max-width: 640px; margin-bottom: 30px; }
+.scope { margin-top: 24px; }
 .scope { position: sticky; top: 0; z-index: 5; background: var(--white); border-bottom: 3px solid var(--black); }
 .scope .inner { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; padding-top: 12px; padding-bottom: 12px; }
 .scope-k { font: 700 13px var(--sans); letter-spacing: 1px; text-transform: uppercase; margin-right: 6px; }
@@ -275,7 +286,7 @@ footer a { color: var(--white); }
 .dv-error { padding: 20px; border: 3px solid var(--orange); }
 .tip { position: fixed; z-index: 20; pointer-events: none; max-width: 260px; padding: 8px 10px; background: var(--black); color: var(--white); font: 14px/1.35 var(--serif); }
 @media (max-width: 960px) { .dv-grid { grid-template-columns: 1fr; } .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 600px) { .hb li { grid-template-columns: 1fr; } .scope-k { width: 100%; } }
+@media (max-width: 600px) { .views .inner { grid-template-columns: 1fr; } .hb li { grid-template-columns: 1fr; } .scope-k { width: 100%; } }
 </style>
 </head>
 <body>
@@ -305,7 +316,22 @@ footer a { color: var(--white); }
     </div>
   </section>
 
-  <div class="scope" role="group" aria-label="Show data for">
+  <nav class="views" aria-label="Choose a dataset">
+    <div class="inner">
+      <a class="view" href="#requests" data-view="requests" aria-current="true">
+        <span class="view-k">View 311 data</span>
+        <b id="v-311">–</b>
+        <span id="v-311-sub">service requests</span>
+      </a>
+      <a class="view" href="#restaurants" data-view="restaurants">
+        <span class="view-k">View restaurant inspection data</span>
+        <b id="v-rest">–</b>
+        <span id="v-rest-sub">facilities inspected</span>
+      </a>
+    </div>
+  </nav>
+
+  <div class="scope" id="scope" role="group" aria-label="Show data for">
     <div class="inner">
       <span class="scope-k">Show data for</span>
       <button type="button" data-scope="all" aria-pressed="true">All of Berkeley</button>
@@ -353,19 +379,13 @@ footer a { color: var(--white); }
       <p class="dv-lede">Each food facility's most recent health inspection, as published by the City. The data records violations in five areas: holding temperature, cooking, personal hygiene, contaminated equipment and unsafe food sources.</p>
       <div class="tiles" id="i-tiles"></div>
 
-      <div class="dv-grid">
-        <figure class="dv-card">
-          <figcaption><h3>Results at the latest inspection</h3><p>Share of facilities in each group.</p></figcaption>
-          <div class="chart" id="i-results"></div>
-        </figure>
-        <figure class="dv-card">
-          <figcaption><h3>Facilities with a violation, by district</h3><p>Share of each district's inspected facilities with at least one violation. The data doesn't say why rates differ, and facilities were last inspected at different times, so compare with care.</p></figcaption>
-          <div class="chart" id="i-dist"></div>
-        </figure>
-      </div>
+      <figure class="dv-card dv-narrow">
+        <figcaption><h3>Results at the latest inspection</h3><p>Share of inspected facilities in each group.</p></figcaption>
+        <div class="chart" id="i-results"></div>
+      </figure>
 
       <figure class="dv-card dv-wide">
-        <figcaption><h3 id="i-list-h">Facilities</h3><p>Click a column heading to sort.</p></figcaption>
+        <figcaption><h3>All facilities</h3><p>Click a column heading to sort.</p></figcaption>
         <div class="dv-filter">
           <label for="i-search">Search</label>
           <input id="i-search" type="search" placeholder="Name or street">
@@ -558,13 +578,13 @@ footer a { color: var(--white); }
   let sortKey = "n", sortDir = 1;
 
   function renderRest() {
-    const F = data.restaurants, inScope = scope === "all" ? F : F.filter(f => f.dist === D5);
+    const F = data.restaurants, inScope = F;
     const insp = inScope.filter(f => f.d);
     const n = k => insp.filter(f => result(f) === k).length;
     const dates = F.filter(f => f.d).map(f => f.d).sort();
     document.getElementById("i-range").textContent = `Inspections from ${shortDate(dates[0])} to ${shortDate(dates[dates.length - 1])}`;
     document.getElementById("i-tiles").innerHTML = [
-      [fmt(insp.length), scope === "all" ? "facilities inspected" : "facilities inspected in District 5"],
+      [fmt(insp.length), "facilities inspected"],
       [pct(n("clean"), insp.length), "had no violations"],
       [fmt(n("minor")), "had a minor violation"],
       [fmt(n("major")), "had a major violation"]
@@ -576,18 +596,12 @@ footer a { color: var(--white); }
       { label: "Major violation", v: n("major"), c: "#000" }
     ].map(i => ({ ...i, tip: `${i.label}: ${fmt(i.v)} of ${fmt(insp.length)} (${pct(i.v, insp.length)})` })), { max: insp.length, f: v => pct(v, insp.length) });
 
-    hbars(document.getElementById("i-dist"), [1,2,3,4,5,6,7,8].map(d => {
-      const g = F.filter(f => f.dist === d && f.d), v = g.filter(f => result(f) !== "clean").length;
-      return { label: "District " + d, v: g.length ? v / g.length : 0, c: d === D5 ? ORANGE : BLUE, tip: `District ${d}: ${fmt(v)} of ${fmt(g.length)} facilities (${pct(v, g.length)})` };
-    }), { max: 1, f: v => Math.round(v * 100) + "%" });
-
-    document.getElementById("i-list-h").textContent = scope === "all" ? "All facilities" : "Facilities in District 5";
     renderTable();
   }
 
   function renderTable() {
     const F = data.restaurants, q = document.getElementById("i-search").value.trim().toLowerCase(), show = document.getElementById("i-show").value;
-    let list = (scope === "all" ? F : F.filter(f => f.dist === D5))
+    let list = F
       .filter(f => !q || (f.n + " " + f.a).toLowerCase().includes(q))
       .filter(f => !show || (show === "clean" ? result(f) === "clean" : ["minor", "major"].includes(result(f))));
     const rank = { major: 0, minor: 1, clean: 2, none: 3 };
@@ -611,23 +625,32 @@ footer a { color: var(--white); }
   document.querySelectorAll("[data-scope]").forEach(b => b.addEventListener("click", () => {
     scope = b.dataset.scope;
     document.querySelectorAll("[data-scope]").forEach(x => x.setAttribute("aria-pressed", x === b));
-    render311(); renderRest();
+    render311();
   }));
   let rt; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => data && render311(), 150); });
 
   function about() {
     const S = data.sources, C = data.c311, noLoc = C.rows.filter(r => !r[3]).length;
-    const noDist = data.restaurants.filter(f => !f.dist).length;
     document.getElementById("about-list").innerHTML = [
       `311 requests come from the City's <a href="${S["311"].url}">311 Cases</a> dataset (last updated ${longDate(S["311"].updated)}). Almost all of its records start in December 2025, so this page shows requests opened since ${longDate(C.since)}.`,
       `${fmt(noLoc)} requests have no usable location. They count toward the citywide totals but not toward any district.`,
       `"Time to close" counts days from when a request was opened to when the City marked it closed.`,
       `Restaurant results come from the City's <a href="${S.restaurants.url}">Restaurant Inspections</a> dataset (last updated ${longDate(S.restaurants.updated)}). It lists only each facility's latest inspection, so it can't show trends over time. Facilities listed more than once at the same address are combined, using their latest inspection.`,
-      `The inspection data has no map coordinates, so each facility's district was matched from its street address using City parcel and 311 location data. This is close but not exact for addresses right on a district line. ${noDist ? fmt(noDist) + " facilit" + (noDist === 1 ? "y" : "ies") + " couldn't be matched to a district." : ""}`,
-      `District boundaries come from the City's <a href="${S.districts.url}">Council Districts</a> dataset, which has the boundaries adopted in 2022.`,
+      `311 district totals use boundaries from the City's <a href="${S.districts.url}">Council Districts</a> dataset, adopted in 2022.`,
       `Data last pulled ${new Intl.DateTimeFormat("en-US", { timeZone: "America/Los_Angeles", month: "long", day: "numeric", year: "numeric" }).format(new Date(data.built.replace("Z", ":00Z")))}.`
     ].map(t => `<li>${t}</li>`).join("");
   }
+
+  function showView() {
+    const v = location.hash === "#restaurants" ? "restaurants" : "requests";
+    document.getElementById("requests").hidden = v !== "requests";
+    document.getElementById("scope").hidden = v !== "requests";
+    document.getElementById("restaurants").hidden = v !== "restaurants";
+    document.querySelectorAll("[data-view]").forEach(a => a.setAttribute("aria-current", a.dataset.view === v));
+    if (v === "requests" && data) render311();
+  }
+  addEventListener("hashchange", showView);
+  showView();
 
   fetch("data/open-data.json", { cache: "no-cache" })
     .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
@@ -635,7 +658,12 @@ footer a { color: var(--white); }
       data = d;
       const sel = document.getElementById("r-type");
       d.c311.types.slice(0, 25).forEach((t, i) => sel.insertAdjacentHTML("beforeend", `<option value="${i}">${esc(t)}</option>`));
-      render311(); renderRest(); about();
+      const insp = d.restaurants.filter(f => f.d);
+      document.getElementById("v-311").textContent = fmt(d.c311.rows.length);
+      document.getElementById("v-311-sub").textContent = `service requests since ${shortDate(d.c311.since)}`;
+      document.getElementById("v-rest").textContent = pct(insp.filter(f => !f.major.length && !f.minor.length).length, insp.length);
+      document.getElementById("v-rest-sub").textContent = `of ${fmt(insp.length)} facilities had no violations at their latest inspection`;
+      render311(); renderRest(); about(); showView();
     })
     .catch(() => { document.getElementById("main").insertAdjacentHTML("afterbegin", `<p class="inner dv-error">The data couldn't be loaded. Please try again later.</p>`); });
 }
